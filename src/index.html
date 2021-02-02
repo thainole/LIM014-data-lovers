@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>OLIMPIADAS RÍO 2016</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
 
 </head>
@@ -15,16 +17,34 @@
         <h1>CHAMPIONS</h1>
     </header>
 
-    <!-- Home page -->
-    <img src = "img/banner.jpg" id="banner">
-    <section id="intro-1">
-        <p>Did you know...? <br> In the Rio Olympics there were 11 384 competitors representing 205 countries.</p>
-        <button id="seeChampions">See all champions</button>
-    </section>
+ <!-- Home page -->
+    <section id="homePage"></section>
+        <img src = "img/banner.jpg" class="banner">
+        <section id="intro1">
+           <p><em>Did you know...? </em><br><br>...In the Rio Olympics there were 11 384 competitors <br>representing 205 countries.</p>
+          <button id="see-champions"class="buttons">See all <br>champions</button>
+        </section>
+
+        <section>
+            <img src = "img/women.png" class="banner">
+           <p>When women were first permitted to enter the Olympic Games in 1900, <br>they represented just 2.2 % of the athletic competitors.</p>
+        </section>
+
+        <section id="intro2">
+            <section>
+                <img src = "img/women-medal.jpg" class ="womenImg" width="450px" height="450px">
+            </section>
+            <section id="text-button">
+                <p>In Rio, 45 percent of all competitors were women: that’s more than double the figure from 1976, just 45 years ago.</p>
+                <button class="buttons" id="see-women">See Champions</button>
+            </section>
+        </section>
+    
+
+  <!-- Champions page -->
 
 
-    <!-- Champions page -->
-
+    <footer>MC, C & T 2021 - All Rights Reserved </footer>
     <div id="root"></div>
     <script src="main.js" type="module"></script>
 </body>
