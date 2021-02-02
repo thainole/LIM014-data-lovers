@@ -1,0 +1,21 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+header 
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 100px;
+    font-size: 20px;
+}
+
+#logo
+{
+    width:  350px;
+    height: 190px;
+}
