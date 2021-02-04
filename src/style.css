@@ -89,8 +89,7 @@ main {
 
 section {
     display: flex;
-    flex-direction;
-    rom;
+    flex-direction: row;
     flex-wrap: wrap;
 }
 
