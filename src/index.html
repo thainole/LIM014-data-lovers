@@ -22,35 +22,38 @@
 
     <!-- <!-- Home page -->
 
-    <section id="homePage"></section>
-    <img src="img/banner.jpg" class="banner">
-    <section id="intro1">
-        <p><em>Did you know...? </em><br><br>...In the Rio Olympics there were 11’444 athletes <br>representing 205 countries.</p>
-        <button id="see-champions" class="buttons">See all <br>champions</button>
-    </section>
+    <section id="homePage">
+        <img src="img/banner.jpg" class="banner">
+        <section id="intro1">
+            <p><em>Did you know...? </em><br><br>...In the Rio Olympics there were 11’444 athletes <br>representing 205 countries.
+            </p>
+            <button id="see-champions" class="buttons">See all <br>champions</button>
+        </section>
 
-    <section>
-        <img src="img/women.png" class="banner">
-
-    </section>
-    <section>
-        <p><strong>In 1990,</strong> women participated in the Games in Paris, France for the first time, Twenty-two women out of a total of 997 athletes competed in five sports: tennis, sailing, croquet, equestrian and golf. They represented just 2.2 %
-            of the athletic competitors.</p>
-        <p><strong>In 2000,</strong> during the 2nd IOC World Conference on Women in Sport, the following resolution was adopted: “The Olympic Movement must reserve at least 20 per cent of decision-making positions for women within their structures by the
-            end of 2005.” </p>
-        <p><strong>In 2013,</strong> for the first time, four women became Members of the IOC Executive Board (26.6 per cent of the Board Members).<a target="_blank" href="https://www.olympic.org/women-in-sport/background/key-dates">Click here for more information</a>            </p>
-
-    </section>
-    <section id="intro2">
         <section>
-            <img src="img/women-medal.jpg" class="womenImg" width="450px" height="450px">
+            <img src="img/women.png" class="banner">
+
         </section>
-        <section id="text-button">
-            <p><strong>In 2016,</strong> in Rio, At the Olympic Games in Rio de Janeiro, Brazil, a new record of participation for women was reached with 45 per cent female participation (5,176 women out of 11’444 athletes).That’s more than double the figure
-                from 1976, just 45 years ago.</p>
-            <button class="buttons" id="see-women">See Champions</button>
+        <section>
+            <p><strong>In 1990,</strong> women participated in the Games in Paris, France for the first time, Twenty-two women out of a total of 997 athletes competed in five sports: tennis, sailing, croquet, equestrian and golf. They represented just 2.2
+                % of the athletic competitors.</p>
+            <p><strong>In 2000,</strong> during the 2nd IOC World Conference on Women in Sport, the following resolution was adopted: “The Olympic Movement must reserve at least 20 per cent of decision-making positions for women within their structures by
+                the end of 2005.” </p>
+            <p><strong>In 2013,</strong> for the first time, four women became Members of the IOC Executive Board (26.6 per cent of the Board Members).<a target="_blank" href="https://www.olympic.org/women-in-sport/background/key-dates">Click here for more
+                    information</a> </p>
+
         </section>
-    </section> -->
+        <section id="intro2">
+            <section>
+                <img src="img/women-medal.jpg" class="womenImg" width="450px" height="450px">
+            </section>
+            <section id="text-button">
+                <p><strong>In 2016,</strong> in Rio, At the Olympic Games in Rio de Janeiro, Brazil, a new record of participation for women was reached with 45 per cent female participation (5,176 women out of 11’444 athletes).That’s more than double the
+                    figure from 1976, just 45 years ago.</p>
+                <button class="buttons" id="see-women">See Champions</button>
+            </section>
+        </section>
+    </section>
 
 
     <!-- Champions page -->
@@ -59,10 +62,30 @@
     <main class="container">
         <section class="row">
             <aside class="asideColumn">
-                35% left side column
+                <!-- 35% left side column -->
+                <div class="allFilters">
+                    <div class="filter">
+                        <label> Sort By:</label><br>
+                        <select>
+                            <option value="medals">medals</option>
+                        </select>
+                    </div>
+                    <div class="filter">
+                        <input type="text" placeholder="Search.." id="myInput">
+                    </div>
+                    <div class="filter">
+                        Male <input Name="gender" value="male" type="radio"> <br> Female <input Name="gender" value="female" type="radio">
+                    </div>
+                    <div class="filter">
+                        <label> Country: </label><br>
+                        <select>
+                            <option value="All">All</option>
+                        </select>
+                    </div>
+                </div>
             </aside>
             <article class="mainColumn">
-                65% champions column
+                <!-- 65% champions column -->
             </article>
         </section>
     </main>
