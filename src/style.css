@@ -1,5 +1,6 @@
 * {
     font-family: 'Montserrat', sans-serif;
+    margin: 0;
 }
 
 header {
@@ -9,6 +10,17 @@ header {
     font-size: 20px;
     margin: 0px;
     padding: 0px 50px;
+}
+
+@media screen and (max-width: 800px) {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 20px;
+        margin: 0px;
+        padding: 0px;
+    }
 }
 
 footer {
@@ -21,14 +33,30 @@ footer {
 
 p {
     text-align: center;
-    padding: 40px;
+    padding: 30px 70px;
     font-size: 26px;
     line-height: 1.5;
+}
+
+@media screen and (max-width: 800px) {
+    p {
+        text-align: center;
+        padding: 10px 20px;
+        line-height: 1.5;
+        font-size: 18px;
+    }
 }
 
 #logo {
     width: 250px;
     height: 150px;
+}
+
+@media screen and (max-width: 800px) {
+    #logo {
+        width: 150px;
+        height: 90px;
+    }
 }
 
 .banner {
@@ -55,8 +83,6 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding-bottom: 45px;
-    padding-left: 40px;
 }
 
 .buttons {
@@ -89,12 +115,12 @@ p {
     overflow: hidden;
     background-color: #FFFFFF;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 @media screen and (max-width: 800px) {
     .topnav {
-        font-size: 16px;
+        font-size: 22px;
     }
 }
 
@@ -143,4 +169,9 @@ aside {
 body {
     position: absolute;
     left: 0;
+}
+
+.homePage {
+    padding-left: 0;
+    padding-right: 0;
 }
