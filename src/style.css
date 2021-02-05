@@ -175,6 +175,15 @@ aside {
     padding: 20px;
 }
 
+@media screen and (max-width: 800px) {
+    .allFilters {
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        flex-direction: row;
+    }
+}
+
 .filter {
     border-radius: 50px;
     background-color: #EBEBEB;
@@ -183,4 +192,12 @@ aside {
     padding: 22px;
     margin: 10px 10px;
     text-align: center;
+}
+
+#search {
+    padding: 10px;
+    font-size: 22px;
+    border-radius: 50px;
+    border-color: #EBEBEB;
+    border-style: none;
 }
