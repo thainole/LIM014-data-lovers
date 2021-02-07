@@ -110,7 +110,8 @@ header {
 
 /* PAGE -- Home */
 
-.home-main {}
+
+/* .home-main {} */
 
 
 /* Hero */
@@ -185,7 +186,8 @@ header {
 
 /* Womens Section */
 
-.home-main__women {}
+
+/* .home-main__women {} */
 
 .home-main__women__banner {
     height: 350px;
@@ -208,7 +210,9 @@ header {
 
 /* PAGE -- Search */
 
-.page-search {}
+
+/* 
+.page-search {} */
 
 .page-search__main {
     display: flex;
@@ -321,6 +325,20 @@ header {
     font-weight: 600;
     padding: 5px 0;
     margin-right: 20px;
+}
+
+.page-search__main__filter-area__filter-group input {
+    border: white;
+    border-radius: 50px;
+    justify-self: center;
+    font-size: 17px;
+}
+
+.filter select {
+    border: white;
+    border-radius: 50px;
+    justify-self: center;
+    font-size: 17px;
 }
 
 
