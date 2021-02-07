@@ -1,64 +1,356 @@
-*{
+* {
     font-family: 'Montserrat', sans-serif;
-    
+    margin: 0px;
 }
+
+
+/* LAYOUT */
+
+
+/* Header - Nav */
 
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 100px;
+    margin: 0px;
+    padding: 0px 50px;
+}
+
+.header__logo-area {
+    width: 250px;
+    height: 150px;
+}
+
+@media screen and (max-width: 1000px) {
+    .header__logo-area__logo {
+        width: 150px;
+        height: 90px;
+    }
+}
+
+.header__logo-area__logo {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+    .header__logo-area__logo {
+        width: 50%;
+        height: 50%px;
+    }
+}
+
+.header__nav {
+    font-weight: bold;
     font-size: 20px;
 }
 
-footer {
+.header__nav__link {
+    margin: 10px;
+    padding: 20px 30px;
+    color: black;
+    text-decoration: none;
+}
+
+.header__nav__link:hover {
+    color: white;
+    background-color: #2FB14E;
+}
+
+.header__nav-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .header__nav-mobile {
+        display: block;
+    }
+    .header__nav {
+        display: none;
+    }
+}
+
+
+/* Hamburger */
+
+.hamburger-menu {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+
+/* Footer */
+
+.footer {
     background-color: #0085C7;
     text-align: center;
     color: white;
     padding: 40px;
     font-size: 20px;
-
-}
-p {
-    text-align: center;
-    padding: 40px;
-    font-size: 26px;
-    line-height: 1.5;
 }
 
-#logo {
-    width:  350px;
-    height: 190px;
-}
 
-.banner{
+/* END LAYOUT */
+
+
+/* PAGES */
+
+
+/* PAGE -- Home */
+
+
+/* .home-main {} */
+
+
+/* Hero */
+
+.home-main__hero {
     width: 100%;
-    height: 430px;
+    margin-left: 0;
 }
 
-#intro1 {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    font-size: 26px;
-    padding: 33px;
-    line-height: 2;
+.home-main__hero__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
-#text-button {
+
+
+/* Intro */
+
+.home-main__intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 30px;
+}
+
+.home-main__intro__content-area {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+    .home-main__intro {
+        flex-direction: column;
+    }
+    .home-main__intro__content-area {
+        margin-bottom: 40px;
+    }
+}
+
+.home-main__intro__content-area__image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    max-width: 400px;
+}
+
+.home-main__intro__content-area__text {
+    max-width: 600px;
+}
+
+.home-main__intro__content-area__text__title {
+    font-size: 30px;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.home-main__intro__content-area__text__snippet {
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 1px;
+}
+
+.home-main__intro__cta {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+
+/* Womens Section */
+
+
+/* .home-main__women {} */
+
+.home-main__women__banner {
+    height: 350px;
+    background-color: royalblue;
+}
+
+.home-main__women__banner__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.link {
+    color: rgb(0, 162, 255);
+}
+
+
+/* END PAGE -- Home */
+
+
+/* PAGE -- Search */
+
+
+/* 
+.page-search {} */
+
+.page-search__main {
+    display: flex;
+}
+
+@media screen and (max-width: 800px) {
+    .page-search__main {
+        flex-direction: column;
+    }
+}
+
+.page-search__main__filter-area {
+    flex: 1;
+}
+
+.page-search__main__filter-area__filter-group {
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-#intro2 {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding-bottom: 45px;
-    padding-left: 40px;
+    align-items: flex-end;
+    margin: 30px;
 }
 
-.buttons {
+@media screen and (max-width: 800px) {
+    .page-search__main__filter-area__filter-group {
+        align-items: center;
+    }
+}
+
+.page-search__main__results-area {
+    flex: 2;
+}
+
+.page-search__main__results-area__grid {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card {
+    width: 240px;
+    margin: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+    transition: 0.4s;
+    background: #EBEBEB;
+    font-size: 16px;
+    border-radius: 50px;
+    padding: 20px;
+}
+
+.card__title {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    color: #2FB14E;
+}
+
+.card__title::after {
+    content: "";
+    height: 1px;
+    width: 70%;
+    background-color: grey;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card__content {
+    color: #8E8D8D;
+}
+
+
+/* FILTERS */
+
+.filter {
+    border-radius: 50px;
+    background-color: #EBEBEB;
+    font-size: 26px;
+    padding: 22px;
+    margin: 10px 10px;
+    display: flex;
+    width: 300px;
+}
+
+.filter__label {
+    margin-right: 20px;
+}
+
+.filter__select {
+    border: 1px solid white;
+    border-radius: 50px;
+}
+
+.filter--yellow {
+    background-color: #F8AF25;
+    color: white;
+    font-weight: bold;
+}
+
+.filter__select-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter__select-group__label {
+    font-weight: 600;
+    padding: 5px 0;
+    margin-right: 20px;
+}
+
+.page-search__main__filter-area__filter-group input {
+    border: white;
+    border-radius: 50px;
+    justify-self: center;
+    font-size: 17px;
+}
+
+.filter select {
+    border: white;
+    border-radius: 50px;
+    justify-self: center;
+    font-size: 17px;
+}
+
+
+/* END PAGE -- Search */
+
+
+/* Generic Classes */
+
+
+/* Button */
+
+.button {
     width: 230px;
     height: 80px;
     font-size: 22px;
@@ -73,12 +365,21 @@ p {
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
-
+    margin: 20px;
 }
-.buttons:hover {
 
+.button:hover {
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
     color: #fff;
     transform: translateY(-7px);
-  }
+}
 
+
+/* Paragraphs */
+
+p {
+    text-align: center;
+    padding: 30px 70px;
+    font-size: 26px;
+    line-height: 1.5;
+}
