@@ -7,94 +7,86 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
-
 </head>
 
-<body>
+<body class="body">
 
-    <header>
-        <img src="img/logo-olimpiadas.png" id="logo">
-        <div class="topnav" id="myTopnav">
-            <a href="#CHAMPIONS">CHAMPIONS</a>
-            <a href="#HOME">HOME</a>
+    <header class="header">
+        <div class="header__logo-area">
+            <img class="header__logo-area__logo" src="img/logo-olimpiadas.png">
+        </div>
+
+        <div class="header__nav">
+            <a class="header__nav__link" href="#CHAMPIONS">STATISTICS</a>
+            <a class="header__nav__link" href="#CHAMPIONS">CHAMPIONS</a>
+            <a class="header__nav__link" href="#HOME">HOME</a>
+        </div>
+        <div class="header__nav-mobile">
+            <div class="hambuger-menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
         </div>
     </header>
 
-    <!-- <!-- Home page -->
+    <!-- Home page -->
 
-    <section id="homePage">
-        <img src="img/banner.jpg" class="banner">
-        <section id="intro1">
-            <p><em>Did you know...? </em><br><br>...In the Rio Olympics there were 11’444 athletes <br>representing 205 countries.
-            </p>
-            <button id="see-champions" class="buttons">See all <br>champions</button>
+    <section class="home-main">
+        <div class="home-main__hero">
+            <img class="home-main__hero__image" src="img/banner.jpg">
+        </div>
+
+        <section class="home-main__intro">
+            <div class="home-main__intro__content-area">
+                <div class="home-main__intro__content-area__text">
+                    <div class="home-main__intro__content-area__text__title">
+                        Did you know...?
+                    </div>
+                    <div class="home-main__intro__content-area__text__snippet">
+                        In the Rio Olympics there were 11’444 athletes representing 205 countries. Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quisquam quaerat consectetur a in, dolorem veniam officia pariatur. Optio eum ut explicabo maxime doloribus, ad nulla
+                        fugit nihil unde corrupti.
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="home-main__intro__cta">
+                <button class="button">See all <br>champions</button>
+            </div>
         </section>
 
-        <section>
-            <img src="img/women.png" class="banner">
-
-        </section>
-        <section>
-            <p><strong>In 1990,</strong> women participated in the Games in Paris, France for the first time, Twenty-two women out of a total of 997 athletes competed in five sports: tennis, sailing, croquet, equestrian and golf. They represented just 2.2
-                % of the athletic competitors.</p>
-            <p><strong>In 2000,</strong> during the 2nd IOC World Conference on Women in Sport, the following resolution was adopted: “The Olympic Movement must reserve at least 20 per cent of decision-making positions for women within their structures by
-                the end of 2005.” </p>
-            <p><strong>In 2013,</strong> for the first time, four women became Members of the IOC Executive Board (26.6 per cent of the Board Members).<a target="_blank" href="https://www.olympic.org/women-in-sport/background/key-dates">Click here for more
-                    information</a> </p>
-
-        </section>
-        <section id="intro2">
-            <section>
-                <img src="img/women-medal.jpg" class="womenImg" width="450px" height="450px">
-            </section>
-            <section id="text-button">
+        <section class="home-main__women">
+            <div class="home-main__women__banner">
+                <img src="img/women.png" class="home-main__women__banner__image">
+            </div>
+            <div class="home-main__women__history">
+                <p><strong>In 1990,</strong> women participated in the Games in Paris, France for the first time, Twenty-two women out of a total of 997 athletes competed in five sports: tennis, sailing, croquet, equestrian and golf. They represented just
+                    2.2 % of the athletic competitors.</p>
+                <p><strong>In 2000,</strong> during the 2nd IOC World Conference on Women in Sport, the following resolution was adopted: “The Olympic Movement must reserve at least 20 per cent of decision-making positions for women within their structures
+                    by the end of 2005.” </p>
+                <p><strong>In 2013,</strong> for the first time, four women became Members of the IOC Executive Board (26.6 per cent of the Board Members).<a target="_blank" href="https://www.olympic.org/women-in-sport/background/key-dates">Click here for more
+                        information</a> </p>
                 <p><strong>In 2016,</strong> in Rio, At the Olympic Games in Rio de Janeiro, Brazil, a new record of participation for women was reached with 45 per cent female participation (5,176 women out of 11’444 athletes).That’s more than double the
                     figure from 1976, just 45 years ago.</p>
-                <button class="buttons" id="see-women">See Champions</button>
-            </section>
+            </div>
         </section>
-    </section>
 
 
-    <!-- Champions page -->
-
-
-    <main class="container">
-        <section class="row">
-            <aside class="asideColumn">
-                <!-- 35% left side column -->
-                <div class="allFilters">
-                    <div class="filter">
-                        <label> Sort By:</label><br>
-                        <select>
-                            <option value="medals">medals</option>
-                        </select>
-                    </div>
-                    <div class="filter">
-                        <input type="text" placeholder="  Search..." id="search">
-                    </div>
-                    <div class="filter">
-                        Male<input Name="gender" value="male" type="radio"> <br> Female<input Name="gender" value="female" type="radio">
-                    </div>
-                    <div class="filter">
-                        <label> Country: </label><br>
-                        <select>
-                            <option value="All">All</option>
-                        </select>
-                    </div>
-                </div>
-            </aside>
-            <article class="mainColumn">
-                <!-- 65% champions column -->
-            </article>
+        <section class="home-main__intro">
+            <div class="home-main__intro__content-area">
+                <img src="img/women-medal.jpg" class="home-main__intro__content-area__image">
+            </div>
+            <div class="home-main__intro__cta">
+                <button class="button">See all <br>champions</button>
+            </div>
         </section>
-    </main>
 
 
-    <footer>MC, C & T 2021 - All Rights Reserved </footer>
 
-    <div id="root"></div>
-    <script src="main.js" type="module"></script>
+        <footer class="footer">MC, C & T 2021 - All Rights Reserved </footer>
+
+        <script src="main.js" type="module"></script>
 </body>
 
 </html>

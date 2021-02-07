@@ -1,29 +1,173 @@
 * {
     font-family: 'Montserrat', sans-serif;
-    margin: 0px 0px;
+    margin: 0px;
 }
 
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 20px;
     margin: 0px;
     padding: 0px 50px;
 }
 
-@media screen and (max-width: 800px) {
-    header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 20px;
-        margin: 0px;
-        padding: 0px;
+.header__logo-area {
+    width: 250px;
+    height: 150px;
+}
+
+.header__logo-area__logo {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.header__nav {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.header__nav__link {
+    margin: 10px;
+    padding: 20px 30px;
+    color: black;
+    text-decoration: none;
+}
+
+.header__nav__link:hover {
+    color: white;
+    background-color: green;
+}
+
+.header__nav-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .header__nav-mobile {
+        display: block;
+    }
+    .header__nav {
+        display: none;
     }
 }
 
-footer {
+
+/* Hamburger */
+
+.hamburger-menu {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+
+/* End Hamburger */
+
+
+/* Page */
+
+.home-main {}
+
+
+/* Hero */
+
+.home-main__hero {
+    width: 100%;
+    margin-left: 0;
+}
+
+.home-main__hero__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Intro */
+
+.home-main__intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 30px;
+}
+
+.home-main__intro__content-area {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+    .home-main__intro {
+        flex-direction: column;
+    }
+    .home-main__intro__content-area {
+        margin-bottom: 40px;
+    }
+}
+
+.home-main__intro__content-area__image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    max-width: 400px;
+}
+
+.home-main__intro__content-area__text {
+    max-width: 600px;
+}
+
+.home-main__intro__content-area__text__title {
+    font-size: 30px;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.home-main__intro__content-area__text__snippet {
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 1px;
+}
+
+.home-main__intro__cta {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+
+/* Womens Section */
+
+.home-main__women {}
+
+.home-main__women__banner {
+    height: 350px;
+    background-color: royalblue;
+}
+
+.home-main__women__banner__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Footer */
+
+.footer {
     background-color: #0085C7;
     text-align: center;
     color: white;
@@ -31,61 +175,13 @@ footer {
     font-size: 20px;
 }
 
-p {
-    text-align: center;
-    padding: 30px 70px;
-    font-size: 26px;
-    line-height: 1.5;
-}
 
-@media screen and (max-width: 800px) {
-    p {
-        text-align: center;
-        padding: 10px 20px;
-        line-height: 1.5;
-        font-size: 18px;
-    }
-}
+/* Generic Classes */
 
-#logo {
-    width: 250px;
-    height: 150px;
-}
 
-@media screen and (max-width: 800px) {
-    #logo {
-        width: 150px;
-        height: 90px;
-    }
-}
+/* Button */
 
-.banner {
-    width: 100%;
-    margin-left: 0;
-}
-
-#intro1 {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    font-size: 26px;
-    padding: 33px;
-    line-height: 2;
-}
-
-#text-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#intro2 {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.buttons {
+.button {
     width: 230px;
     height: 80px;
     font-size: 22px;
@@ -100,89 +196,86 @@ p {
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
+    margin: 20px;
 }
 
-.buttons:hover {
+.button:hover {
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
     color: #fff;
     transform: translateY(-7px);
 }
 
 
-/* // header */
+/* Paragraphs */
 
-.topnav {
-    overflow: hidden;
-    background-color: #FFFFFF;
-    font-weight: bold;
-    font-size: 40px;
-}
-
-@media screen and (max-width: 800px) {
-    .topnav {
-        font-size: 22px;
-        flex: auto;
-    }
-}
-
-.topnav a {
-    float: right;
-    display: block;
-    color: #474545;
+p {
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    flex: auto;
-    justify-content: space-around;
-}
-
-.topnav a:hover {
-    background-color: black;
-    color: white;
+    padding: 30px 70px;
+    font-size: 26px;
+    line-height: 1.5;
 }
 
 
 /* responsive layout */
 
-main {
-    max-width: 1200px;
-    margin: 0 auto;
+
+/* main {
+    margin: 0 0;
 }
 
-section {
+.row {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
 }
 
-article,
+article {
+    width: 65%;
+    background-color: salmon;
+}
+
 aside {
-    flex-basis: 100%
-}
+    width: 35%;
+    background-color: royalblue;
+} */
 
-@media screen and (min-width: 800px) {
+
+/* @media screen and (max-width: 1200px) {
+    .row {
+        flex-direction: column;
+    }
+    aside {
+        width: 100%;
+    }
+    article {
+        width: 100%;
+    }
+} */
+
+
+/* @media screen and (min-width: 800px) {
     aside {
         flex: 3.5;
     }
     article {
         flex: 6.5;
     }
-}
+} */
 
 .allFilters {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px;
+    flex-wrap: wrap;
 }
 
-@media screen and (max-width: 800px) {
+
+/* @media screen and (max-width: 800px) {
     .allFilters {
         display: flex;
         padding: 10px;
         align-items: center;
         flex-direction: row;
     }
-}
+} */
 
 .filter {
     border-radius: 50px;
@@ -194,10 +287,175 @@ aside {
     text-align: center;
 }
 
+
+/* @media screen and (max-width: 800px) {
+    .filter {
+        font-size: 15px;
+    }
+} */
+
+.yellowFilters {
+    border-radius: 50px;
+    background-color: #F8AF25;
+    font-size: 26px;
+    flex-wrap: wrap;
+    padding: 22px;
+    margin: 10px 10px;
+    text-align: center;
+}
+
+.yellow {
+    margin-bottom: 40px;
+}
+
+
+/* @media screen and (max-width: 800px) {
+    .yellow {
+        margin-bottom: 0;
+    }
+} */
+
+.yellowFilters label {
+    color: #FFFFFF;
+}
+
+
+/* @media screen and (max-width: 800px) {
+    .yellowFilters label {
+        font-size: 16px;
+    }
+} */
+
 #search {
     padding: 10px;
     font-size: 22px;
     border-radius: 50px;
     border-color: #EBEBEB;
     border-style: none;
+}
+
+
+/* @media screen and (max-width: 800px) {
+    #search {
+        font-size: 16px;
+    }
+} */
+
+.allFilters select {
+    border-radius: 50px;
+    border-color: #FFFFFF;
+    font-size: 20px;
+}
+
+
+/* 
+@media screen and (max-width: 800px) {
+    .allFilters select {
+        font-size: 16px;
+    }
+} */
+
+
+/* gender checkbox */
+
+
+/* The checkboxContainer */
+
+.checkboxContainer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+
+/* Hide the browser's default checkbox */
+
+.checkboxContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #FFFFFF;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.checkboxContainer input:checked~.checkmark {
+    background-color: #2196F3;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the checkmark when checked */
+
+.checkboxContainer input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the checkmark/indicator */
+
+.checkboxContainer .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/* cards of champions */
+
+.cardsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+    transition: 0.4s;
+    background: #EBEBEB;
+    text-align: center;
+    font-size: 16px;
+    float: left;
+    margin: 10px;
+    border-radius: 50px;
+    padding: 15px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+}
+
+.cardsWrapper {
+    padding: 2px 16px;
 }

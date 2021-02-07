@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>OLYMPICS RIO 2016</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+    <header>
+        <img src="img/logo-olimpiadas.png" id="logo">
+        <div class="topnav" id="myTopnav">
+            <a href="#CHAMPIONS">STATISTICS</a>
+            <a href="#CHAMPIONS">CHAMPIONS</a>
+            <a href="#HOME">HOME</a>
+        </div>
+    </header>
+
+
+    <!-- Champions page -->
+
+
+    <main class="container">
+        <section class="row">
+            <aside class="asideColumn">
+                <!-- 35% left side column -->
+                <div class="allFilters">
+                    <!-- sort by and search in yellow -->
+                    <div class="yellow">
+                        <div class="yellowFilters">
+                            <label> Sort By:</label>
+                            <select>
+                                <option value="gold">GOLD</option>
+                                <option value="silver">SILVER</option>
+                                <option value="bronze">BRONZE</option>
+                            </select>
+                        </div>
+                        <div class="yellowFilters">
+                            <input type="text" placeholder="  Search..." id="search">
+                        </div>
+                    </div>
+                    <!-- gray filters -->
+                    <div class="filter">
+                        <a>Gender: </a>
+                        <br>
+                        <br>
+
+                        <label class="checkboxContainer">Female
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkboxContainer">Male
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="filter">
+                        <label> Country: </label>
+                        <select>
+                            <option value="All">All</option>
+                        </select>
+                    </div>
+                    <div class="filter">
+                        <label> Sport: </label>
+                        <select>
+                            <option value="All">All</option>
+                        </select>
+                    </div>
+                    <div class="filter">
+                        <label> Event: </label>
+                        <select>
+                            <option value="All">All</option>
+                        </select>
+                    </div>
+
+                </div>
+            </aside>
+            <article class="mainColumn">
+                <!-- 65% champions column -->
+                <div class="cardsWrapper">
+                    <div class="card">
+                        <div class="card_container">
+                            <h4><b>Name and Lastname</b></h4>
+                            <p>Sport</p>
+                            <p>Country</p>
+
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card_container">
+                            <h4><b>Name and Lastname</b></h4>
+                            <p>Sport</p>
+                            <p>Country</p>
+
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card_container">
+                            <h4><b>Name and Lastname</b></h4>
+                            <p>Sport</p>
+                            <p>Country</p>
+
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card_container">
+                            <h4><b>Name and Lastname</b></h4>
+                            <p>Sport</p>
+                            <p>Country</p>
+
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card_container">
+                            <h4><b>Name and Lastname</b></h4>
+                            <p>Sport</p>
+                            <p>Country</p>
+
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card_container">
+                            <h4><b>Name and Lastname</b></h4>
+                            <p>Sport</p>
+                            <p>Country</p>
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </article>
+        </section>
+    </main>
+
+
+    <footer>MC, C & T 2021 - All Rights Reserved </footer>
+
+    <div id="root"></div>
+    <script src="main.js" type="module"></script>
+</body>
+
+</html>
