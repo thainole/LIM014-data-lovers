@@ -10,14 +10,24 @@
 
 </head>
 
-<body>
+<body class="body">
 
-    <header>
-        <img src="img/logo-olimpiadas.png" id="logo">
-        <div class="topnav" id="myTopnav">
-            <a href="#CHAMPIONS">STATISTICS</a>
-            <a href="#CHAMPIONS">CHAMPIONS</a>
-            <a href="#HOME">HOME</a>
+    <header class="header">
+        <div class="header__logo-area">
+            <img class="header__logo-area__logo" src="img/logo-olimpiadas.png">
+        </div>
+
+        <div class="header__nav">
+            <a class="header__nav__link" href="#CHAMPIONS">STATISTICS</a>
+            <a class="header__nav__link" href="#CHAMPIONS">CHAMPIONS</a>
+            <a class="header__nav__link" href="#HOME">HOME</a>
+        </div>
+        <div class="header__nav-mobile">
+            <div class="hambuger-menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
         </div>
     </header>
 
@@ -25,123 +35,168 @@
     <!-- Champions page -->
 
 
-    <main class="container">
-        <section class="row">
-            <aside class="asideColumn">
-                <!-- 35% left side column -->
-                <div class="allFilters">
-                    <!-- sort by and search in yellow -->
-                    <div class="yellow">
-                        <div class="yellowFilters">
-                            <label> Sort By:</label>
-                            <select>
-                                <option value="gold">GOLD</option>
-                                <option value="silver">SILVER</option>
-                                <option value="bronze">BRONZE</option>
-                            </select>
-                        </div>
-                        <div class="yellowFilters">
-                            <input type="text" placeholder="  Search..." id="search">
-                        </div>
-                    </div>
-                    <!-- gray filters -->
-                    <div class="filter">
-                        <a>Gender: </a>
-                        <br>
-                        <br>
+    <main class="page-search">
+        <div class="page-search__main">
 
-                        <label class="checkboxContainer">Female
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="checkboxContainer">Male
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                    <div class="filter">
-                        <label> Country: </label>
-                        <select>
-                            <option value="All">All</option>
+            <!-- Side Filters -->
+            <div class="page-search__main__filter-area">
+                <!-- Top Group -->
+                <div class="page-search__main__filter-area__filter-group">
+
+                    <div class="filter filter--yellow">
+                        <label class="filter__label"> Sort By:</label>
+                        <select class="filter__select">
+                            <option value="gold">GOLD</option>
+                            <option value="silver">SILVER</option>
+                            <option value="bronze">BRONZE</option>
                         </select>
                     </div>
-                    <div class="filter">
-                        <label> Sport: </label>
-                        <select>
-                            <option value="All">All</option>
-                        </select>
+
+                    <div class="filter filter--yellow">
+                        <input type="text" placeholder="  Search..." id="search">
                     </div>
+                </div>
+                <!-- Main Group -->
+                <div class="page-search__main__filter-area__filter-group">
+
                     <div class="filter">
-                        <label> Event: </label>
+                        <div class="filter__label">Gender: </div>
+
+                        <div class="filter__select-group">
+                            <div class="filter__select-group__input-group">
+                                <label class="filter__select-group__label">Female
+                                </label>
+                                <input type="checkbox" checked="checked">
+                            </div>
+
+                            <div class="filter__select-group__input-group">
+                                <label class="filter__select-group__label">Male
+                                </label>
+                                <input type="checkbox" checked="checked">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="filter">
+                        <label class="filter__label"> Country: </label>
                         <select>
                             <option value="All">All</option>
                         </select>
                     </div>
 
                 </div>
-            </aside>
-            <article class="mainColumn">
-                <!-- 65% champions column -->
-                <div class="cardsWrapper">
-                    <div class="card">
-                        <div class="card_container">
-                            <h4><b>Name and Lastname</b></h4>
-                            <p>Sport</p>
-                            <p>Country</p>
+            </div>
 
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card_container">
-                            <h4><b>Name and Lastname</b></h4>
-                            <p>Sport</p>
-                            <p>Country</p>
+            <!-- Results Area -->
+            <div class="page-search__main__results-area">
+                <div class="page-search__main__results-area__grid">
 
-                        </div>
-                    </div>
+                    <!-- Card -->
                     <div class="card">
-                        <div class="card_container">
-                            <h4><b>Name and Lastname</b></h4>
-                            <p>Sport</p>
-                            <p>Country</p>
-
+                        <div class="card__title">
+                            Name Lastname
                         </div>
+                        <ul class="card__content">
+                            <li>Sport</li>
+                            <li>Country</li>
+                            <li>Gender</li>
+                        </ul>
                     </div>
+
+                    <!-- Card -->
                     <div class="card">
-                        <div class="card_container">
-                            <h4><b>Name and Lastname</b></h4>
-                            <p>Sport</p>
-                            <p>Country</p>
-
+                        <div class="card__title">
+                            Name Lastname
                         </div>
+                        <ul class="card__content">
+                            <li>Sport</li>
+                            <li>Country</li>
+                            <li>Gender</li>
+                        </ul>
                     </div>
+
+                    <!-- Card -->
                     <div class="card">
-                        <div class="card_container">
-                            <h4><b>Name and Lastname</b></h4>
-                            <p>Sport</p>
-                            <p>Country</p>
-
+                        <div class="card__title">
+                            Name Lastname
                         </div>
+                        <ul class="card__content">
+                            <li>Sport</li>
+                            <li>Country</li>
+                            <li>Gender</li>
+                        </ul>
                     </div>
+
+                    <!-- Card -->
                     <div class="card">
-                        <div class="card_container">
-                            <h4><b>Name and Lastname</b></h4>
-                            <p>Sport</p>
-                            <p>Country</p>
-
+                        <div class="card__title">
+                            Name Lastname
                         </div>
+                        <ul class="card__content">
+                            <li>Sport</li>
+                            <li>Country</li>
+                            <li>Gender</li>
+                        </ul>
                     </div>
+
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card__title">
+                            Name Lastname
+                        </div>
+                        <ul class="card__content">
+                            <li>Sport</li>
+                            <li>Country</li>
+                            <li>Gender</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card__title">
+                            Name Lastname
+                        </div>
+                        <ul class="card__content">
+                            <li>Sport</li>
+                            <li>Country</li>
+                            <li>Gender</li>
+                        </ul>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card__title">
+                            Name Lastname
+                        </div>
+                        <ul class="card__content">
+                            <li>Sport</li>
+                            <li>Country</li>
+                            <li>Gender</li>
+                        </ul>
+                    </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card__title">
+                            Name Lastname
+                        </div>
+                        <ul class="card__content">
+                            <li>Sport</li>
+                            <li>Country</li>
+                            <li>Gender</li>
+                        </ul>
+                    </div>
+
+
                 </div>
-                </div>
-
-            </article>
-        </section>
+            </div>
+        </div>
     </main>
 
 
-    <footer>MC, C & T 2021 - All Rights Reserved </footer>
+    <footer class="footer">MC, C & T 2021 - All Rights Reserved </footer>
 
-    <div id="root"></div>
     <script src="main.js" type="module"></script>
 </body>
 

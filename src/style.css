@@ -3,6 +3,12 @@
     margin: 0px;
 }
 
+
+/* LAYOUT */
+
+
+/* Header - Nav */
+
 header {
     display: flex;
     align-items: center;
@@ -16,10 +22,24 @@ header {
     height: 150px;
 }
 
+@media screen and (max-width: 1000px) {
+    .header__logo-area__logo {
+        width: 150px;
+        height: 90px;
+    }
+}
+
 .header__logo-area__logo {
     object-fit: contain;
     width: 100%;
     height: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+    .header__logo-area__logo {
+        width: 50%;
+        height: 50%px;
+    }
 }
 
 .header__nav {
@@ -36,7 +56,7 @@ header {
 
 .header__nav__link:hover {
     color: white;
-    background-color: green;
+    background-color: #2FB14E;
 }
 
 .header__nav-mobile {
@@ -71,10 +91,24 @@ header {
 }
 
 
-/* End Hamburger */
+/* Footer */
+
+.footer {
+    background-color: #0085C7;
+    text-align: center;
+    color: white;
+    padding: 40px;
+    font-size: 20px;
+}
 
 
-/* Page */
+/* END LAYOUT */
+
+
+/* PAGES */
+
+
+/* PAGE -- Home */
 
 .home-main {}
 
@@ -164,16 +198,133 @@ header {
     height: 100%;
 }
 
-
-/* Footer */
-
-.footer {
-    background-color: #0085C7;
-    text-align: center;
-    color: white;
-    padding: 40px;
-    font-size: 20px;
+.link {
+    color: rgb(0, 162, 255);
 }
+
+
+/* END PAGE -- Home */
+
+
+/* PAGE -- Search */
+
+.page-search {}
+
+.page-search__main {
+    display: flex;
+}
+
+@media screen and (max-width: 800px) {
+    .page-search__main {
+        flex-direction: column;
+    }
+}
+
+.page-search__main__filter-area {
+    flex: 1;
+}
+
+.page-search__main__filter-area__filter-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 30px;
+}
+
+@media screen and (max-width: 800px) {
+    .page-search__main__filter-area__filter-group {
+        align-items: center;
+    }
+}
+
+.page-search__main__results-area {
+    flex: 2;
+}
+
+.page-search__main__results-area__grid {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card {
+    width: 240px;
+    margin: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+    transition: 0.4s;
+    background: #EBEBEB;
+    font-size: 16px;
+    border-radius: 50px;
+    padding: 20px;
+}
+
+.card__title {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    color: #2FB14E;
+}
+
+.card__title::after {
+    content: "";
+    height: 1px;
+    width: 70%;
+    background-color: grey;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card__content {
+    color: #8E8D8D;
+}
+
+
+/* FILTERS */
+
+.filter {
+    border-radius: 50px;
+    background-color: #EBEBEB;
+    font-size: 26px;
+    padding: 22px;
+    margin: 10px 10px;
+    display: flex;
+    width: 300px;
+}
+
+.filter__label {
+    margin-right: 20px;
+}
+
+.filter__select {
+    border: 1px solid white;
+    border-radius: 50px;
+}
+
+.filter--yellow {
+    background-color: #F8AF25;
+    color: white;
+    font-weight: bold;
+}
+
+.filter__select-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter__select-group__label {
+    font-weight: 600;
+    padding: 5px 0;
+    margin-right: 20px;
+}
+
+
+/* END PAGE -- Search */
 
 
 /* Generic Classes */
@@ -213,249 +364,4 @@ p {
     padding: 30px 70px;
     font-size: 26px;
     line-height: 1.5;
-}
-
-
-/* responsive layout */
-
-
-/* main {
-    margin: 0 0;
-}
-
-.row {
-    display: flex;
-}
-
-article {
-    width: 65%;
-    background-color: salmon;
-}
-
-aside {
-    width: 35%;
-    background-color: royalblue;
-} */
-
-
-/* @media screen and (max-width: 1200px) {
-    .row {
-        flex-direction: column;
-    }
-    aside {
-        width: 100%;
-    }
-    article {
-        width: 100%;
-    }
-} */
-
-
-/* @media screen and (min-width: 800px) {
-    aside {
-        flex: 3.5;
-    }
-    article {
-        flex: 6.5;
-    }
-} */
-
-.allFilters {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    flex-wrap: wrap;
-}
-
-
-/* @media screen and (max-width: 800px) {
-    .allFilters {
-        display: flex;
-        padding: 10px;
-        align-items: center;
-        flex-direction: row;
-    }
-} */
-
-.filter {
-    border-radius: 50px;
-    background-color: #EBEBEB;
-    font-size: 26px;
-    flex-wrap: wrap;
-    padding: 22px;
-    margin: 10px 10px;
-    text-align: center;
-}
-
-
-/* @media screen and (max-width: 800px) {
-    .filter {
-        font-size: 15px;
-    }
-} */
-
-.yellowFilters {
-    border-radius: 50px;
-    background-color: #F8AF25;
-    font-size: 26px;
-    flex-wrap: wrap;
-    padding: 22px;
-    margin: 10px 10px;
-    text-align: center;
-}
-
-.yellow {
-    margin-bottom: 40px;
-}
-
-
-/* @media screen and (max-width: 800px) {
-    .yellow {
-        margin-bottom: 0;
-    }
-} */
-
-.yellowFilters label {
-    color: #FFFFFF;
-}
-
-
-/* @media screen and (max-width: 800px) {
-    .yellowFilters label {
-        font-size: 16px;
-    }
-} */
-
-#search {
-    padding: 10px;
-    font-size: 22px;
-    border-radius: 50px;
-    border-color: #EBEBEB;
-    border-style: none;
-}
-
-
-/* @media screen and (max-width: 800px) {
-    #search {
-        font-size: 16px;
-    }
-} */
-
-.allFilters select {
-    border-radius: 50px;
-    border-color: #FFFFFF;
-    font-size: 20px;
-}
-
-
-/* 
-@media screen and (max-width: 800px) {
-    .allFilters select {
-        font-size: 16px;
-    }
-} */
-
-
-/* gender checkbox */
-
-
-/* The checkboxContainer */
-
-.checkboxContainer {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-}
-
-
-/* Hide the browser's default checkbox */
-
-.checkboxContainer input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-
-/* Create a custom checkbox */
-
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #FFFFFF;
-}
-
-
-/* When the checkbox is checked, add a blue background */
-
-.checkboxContainer input:checked~.checkmark {
-    background-color: #2196F3;
-}
-
-
-/* Create the checkmark/indicator (hidden when not checked) */
-
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-
-/* Show the checkmark when checked */
-
-.checkboxContainer input:checked~.checkmark:after {
-    display: block;
-}
-
-
-/* Style the checkmark/indicator */
-
-.checkboxContainer .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-
-/* cards of champions */
-
-.cardsWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 50px;
-}
-
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-    transition: 0.4s;
-    background: #EBEBEB;
-    text-align: center;
-    font-size: 16px;
-    float: left;
-    margin: 10px;
-    border-radius: 50px;
-    padding: 15px;
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
-}
-
-.cardsWrapper {
-    padding: 2px 16px;
 }
