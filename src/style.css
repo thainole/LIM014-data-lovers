@@ -109,7 +109,12 @@ header {
 
 
 /* PAGE -- Home */
-
+.home-main {
+    display: block;
+}
+.page-search {
+    display: none;
+}
 
 /* .home-main {} */
 
@@ -210,6 +215,9 @@ header {
 
 /* PAGE -- Search */
 
+.page-search {
+    display: none;
+}
 
 /* 
 .page-search {} */
