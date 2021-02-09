@@ -296,6 +296,11 @@ header {
     color: #8E8D8D;
 }
 
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .card__read-more button{
     border-radius: 40px;
     border:thin;
