@@ -1,16 +1,20 @@
-import { filterTeam, filterSport, filterGender, mapTeam, mapSport, sortByName } from './data.js';
+import {filterMedalla, filterTeam, filterSport, filterGender, mapTeam, mapSport, sortByName } from './data.js';
 import data from './data/athletes/athletes.js';
 
+ 
 // Declarando variables
 const athletesData = data.athletes;
 let popUp = document.querySelector(".page-search__pop-up-wrapper");
 let popUpContent = document.querySelector(".page-search__pop-up-content");
 const popUpClose = document.querySelector(".page-search__pop-up-close");
 const homeButton = document.getElementById("home-button");
+const statsButton = document.getElementById("stats-button");
 const champsButton = document.getElementById("champs-button");
 const anotherChampsButton = document.getElementById("another-champs-button");
 /* const statsButton = document.getElementById("stats-button"); */
 
+
+filterMedalla(athletesData,"Jordan","Gold");
 
 // Mostrar atletas en las tarjetas y pop up
 let resultsPage = document.querySelector(".page-search__main__results-area__grid");
@@ -104,18 +108,16 @@ function homePage() {
 
 anotherChampsButton.addEventListener("click", champsPage);
 champsButton.addEventListener("click", champsPage);
-<<<<<<< HEAD
 function champsPage () {
-    document.querySelector(".page-search").style.display="block"
+    document.querySelector(".page-search").style.display="block";
     document.querySelector(".home-main").style.display="none";
+}
+statsButton.addEventListener("click", statsPage);
+function statsPage () {
+    window.location.assign('./statistics.html');
+
 }
 
 //Statistics HTML 
 //let sumaDeMedallas =0;
 //for(let i=0; i<=athletesData.length;i++){}
-=======
-function champsPage() {
-    document.querySelector(".page-search").style.display = "block"
-    document.querySelector(".home-main").style.display = "none";
-}
->>>>>>> upstream/temporal
