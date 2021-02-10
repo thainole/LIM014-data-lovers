@@ -96,12 +96,13 @@
                 <div class="page-search__main__filter-area__filter-group">
 
                     <div class="filter filter--yellow">
-                        <label class="filter__label"> Sort By:</label>
+                        <label class="filter__label"> Sort by:</label>
                         <select class="filter__select">
-                            <option value="a-z">A-Z</option>
-                            <option value="z-a">Z-A</option>
-                            <option value="high-medals">HIGHEST # OF MEDALS</option>
-                            <option value="low-medals">LOWEST # OF MEDALS</option>
+                            <option value="All" id="select">Select</option>
+                            <option value="a-z" id="a-z">A-Z</option>
+                            <option value="z-a" id="z-a">Z-A</option>
+                            <option value="high-medals">Highest # of medals</option>
+                            <option value="low-medals">Lowest # of medals</option>
                         </select>
                     </div>
 
@@ -113,19 +114,19 @@
                 <div class="page-search__main__filter-area__filter-group">
 
                     <div class="filter">
-                        <div class="filter__label">Gender: </div>
+                        <div class="filter__label"><strong>Gender: </strong></div>
 
                         <div class="filter__select-group">
                             <div class="filter__select-group__input-group">
-                                <label class="filter__select-group__label">Female
-                                </label>
                                 <input type="checkbox" checked="checked">
+                                <label class="filter__select-group__label">Female
+                                </label>                              
                             </div>
 
                             <div class="filter__select-group__input-group">
+                                <input type="checkbox" checked="checked">
                                 <label class="filter__select-group__label">Male
                                 </label>
-                                <input type="checkbox" checked="checked">
                             </div>
 
                         </div>
@@ -134,9 +135,9 @@
 
 
                     <div class="filter">
-                        <label class="filter__label"> Team: </label>
+                        <label class="filter__label"><strong>Team: </strong></label>
                         <select>
-                            <option value="All" id="team">All</option>
+                            <option value="All" id="select-team">All</option>
                         </select>
                     </div>
 
@@ -148,6 +149,12 @@
                 <div class="page-search__main__results-area__grid">
                 </div>
             </div>
+            <div class="page-search__pop-up-wrapper">
+                <div class="page-search__pop-up">
+                    <div class ="page-search__pop-up-close"><strong>x</strong></div>
+                    <div class="page-search__pop-up-content "></div>
+                </div>
+            </div> 
         </div>
     </main>
 

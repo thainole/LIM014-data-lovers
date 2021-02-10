@@ -7,6 +7,9 @@ export const filterSport = (data, condition) => {
   return data.filter(athletes => athletes.sport.includes(condition));
 };
 
+export const filterGender = (data, condition) => {
+  return data.filter(athletes => athletes.gender.includes(condition));
+}
 
 //Sort 
 export const sortByName = (data) => {
