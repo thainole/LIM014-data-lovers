@@ -135,3 +135,4 @@ function champsPage() {
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
 }
+
