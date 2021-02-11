@@ -3,21 +3,22 @@ import data from './data/athletes/athletes.js';
 
 // Declarando variables
 const athletesData = data.athletes;
-let popUp = document.querySelector(".page-search__pop-up-wrapper");
-let popUpContent = document.querySelector(".page-search__pop-up-content");
+const resultsPage = document.querySelector(".page-search__main__results-area__grid");
+const popUp = document.querySelector(".page-search__pop-up-wrapper");
+const popUpContent = document.querySelector(".page-search__pop-up-content");
 const popUpClose = document.querySelector(".page-search__pop-up-close");
 const homeButton = document.getElementById("home-button");
 const champsButton = document.getElementById("champs-button");
 const anotherChampsButton = document.getElementById("another-champs-button");
-/* const statsButton = document.getElementById("stats-button"); */
-let search = document.querySelector("#search");
+const repeatedTeams = mapTeam(athletesData);
+const selectTeam = document.getElementById("select-team");
+const repeatedSports = mapSport(athletesData);
+const selectSport = document.getElementById("select-sport");
+/*let search = document.querySelector("#search");*/
 
 
 // Mostrar atletas en las tarjetas y pop up
-let resultsPage = document.querySelector(".page-search__main__results-area__grid");
-
-let showAthletes = (data) => {
-    resultsPage.innerHTML = "";
+const showAthletes = (data) => {
     let counter = 0;
     data.forEach((athletes) => {
         counter++;
@@ -58,7 +59,7 @@ popUp.addEventListener("click", e => {
     }
 })
 
-let showAthletesFullData = (athletes) => {
+const showAthletesFullData = (athletes) => {
     let content = `
             <div class="card__title">${athletes.name}</div>
             <div class="card__content">
@@ -76,30 +77,40 @@ let showAthletesFullData = (athletes) => {
 };
 
 
-// Lista de países en orden alfabético
-const repeatedTeams = mapTeam(athletesData);
-const teams = [...new Set(repeatedTeams)].sort((a, b) => a > b ? 1 : -1); // array de opciones
-let selectTeam = document.getElementById("select-team");
-const options = teams.options
-// https://aprende-web.net/javascript/js7_3.php 
-
-// Lista de deportes en orden alfabético
-const repeatedSports = mapSport(athletesData);
+// Crear listas de opciones (teams y sports)
+const teams = [...new Set(repeatedTeams)].sort((a, b) => a > b ? 1 : -1); 
 const sports = [...new Set(repeatedSports)].sort((a, b) => a > b ? 1 : -1);
-console.log(sports);
+
+function listOfOptions (selectCategory, list) {
+    for (let i = 0; i < list.length; i++) {
+        let option = document.createElement("option"),
+            txt = document.createTextNode(list[i]);
+        option.appendChild(txt);
+        selectCategory.insertBefore(option, selectCategory.lastChild);
+    }
+    selectCategory.addEventListener("selectCategory", showAthletes);
+}
+
+listOfOptions(selectTeam, teams);
+listOfOptions(selectSport, sports);
+
 
 
 // Search
-const filtrar = () => {
+/*const filtrar = () => {
     const text = search.value.toLowerCase() //el valor de lo que se puso en el index
     for (let athlete of athletesData) { // for of que funciona en arrays
         let name = athlete.name.toLowerCase(); // para que al bucar, todo sea en minuscula
         if (name.indexOf(text) !== -1) { // retorna el elemento si existe, que sea true 
-            showAthletes(athletesData).name
+            showAthletes(text);
         }
     } 
-    if ()
+    if (text ==="") {
+        resultsPage.innerHTML = `No se han encontrado resultados` ;
+    }
 }
+search.addEventListener("input", filtrar);
+*/
 
 // Consola para verificar que funcionen los filtros
 console.log(filterTeam(athletesData, "Italy"));
@@ -109,7 +120,7 @@ console.log(filterGender(athletesData, "F"));
 console.log(filterGender(athletesData, "M"));
 
 
-// Fincionalidad de la barra de navegación
+// Funcionalidad de la barra de navegación
 homeButton.addEventListener("click", homePage);
 
 function homePage() {
