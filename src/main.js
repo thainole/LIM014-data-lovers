@@ -1,4 +1,4 @@
-import { filterTeam, filterSport, mapTeam, mapSport, sortByName} from './data.js';
+import { filterTeam, filterSport, mapTeam, mapSport, sortByName } from './data.js';
 import data from './data/athletes/athletes.js';
 
 const athletesData = data.athletes;
@@ -6,13 +6,13 @@ const athletesData = data.athletes;
 
 // Lista de países en orden alfabético
 const repeatedTeams = mapTeam(athletesData);
-const teams = [...new Set(repeatedTeams)].sort((a,b) => a > b ? 1 : -1);
+const teams = [...new Set(repeatedTeams)].sort((a, b) => a > b ? 1 : -1);
 console.log(teams);
 
 
 // Lista de deportes en orden alfabético
 const repeatedSports = mapSport(athletesData);
-const sports = [...new Set(repeatedSports)].sort((a,b) => a > b ? 1 : -1);
+const sports = [...new Set(repeatedSports)].sort((a, b) => a > b ? 1 : -1);
 console.log(sports);
 
 
@@ -20,7 +20,7 @@ console.log(sports);
 const resultsPage = document.querySelector(".page-search__main__results-area__grid");
 
 const showAthletes = (data) => {
-    resultsPage.innerHTML="";
+    resultsPage.innerHTML = "";
     let counter = 0;
     data.forEach((athletes) => {
         counter++;
@@ -44,7 +44,7 @@ showAthletes(athletesData);
 
 
 // Consola para verificar que funcionen los filtros
-console.log(filterTeam(athletesData,"Italy"));
+console.log(filterTeam(athletesData, "Italy"));
 console.log(filterSport(athletesData, "Handball"));
 console.log(sortByName(athletesData));
 
@@ -56,15 +56,27 @@ const anotherChampsButton = document.getElementById("another-champs-button");
 /* const statsButton = document.getElementById("stats-button"); */
 
 homeButton.addEventListener("click", homePage);
-function homePage () {
-    document.querySelector(".home-main").style.display="block";
-    document.querySelector(".page-search").style.display="none";
+
+function homePage() {
+    document.querySelector(".home-main").style.display = "block";
+    document.querySelector(".page-search").style.display = "none";
 }
 
 anotherChampsButton.addEventListener("click", champsPage);
 champsButton.addEventListener("click", champsPage);
-function champsPage () {
-    document.querySelector(".page-search").style.display="block"
-    document.querySelector(".home-main").style.display="none";
+
+function champsPage() {
+    document.querySelector(".page-search").style.display = "block"
+    document.querySelector(".home-main").style.display = "none";
 }
 
+// trying to put option on select
+const select = document.getElementById("team");
+for (let i = 0; i < teams.length; i++) {
+    let option = document.createElement("option"),
+        txt = document.createTextNode(teams[i]);
+    option.appendChild(txt);
+    select.insertBefore(option, select.lastChild);
+}
+console.log(teams);
+select.addEventListener("select", showAthletes)
