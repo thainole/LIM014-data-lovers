@@ -136,15 +136,13 @@ function homePage() {
 anotherChampsButton.addEventListener("click", champsPage);
 champsButton.addEventListener("click", champsPage);
 function champsPage () {
-    document.querySelector(".page.search").style.display = "block";
-    document.querySelector(".home-main").style.display = "none"
-    window.location.assign('./index.html');
-
+    document.querySelector(".page-search").style.display = "block";
+    document.querySelector(".home-main").style.display = "none";
 }
+
 statsButton.addEventListener("click", statsPage);
 function statsPage () {
     window.location.assign('./statistics.html');
-
 }
 
 //Statistics HTML 
@@ -153,8 +151,9 @@ function statsPage () {
 
 //Dibujar tabla
 const $bodytable = document.querySelector("#bodytable");
+
 //Recorrer la data
-data.forEach(data=>{
+/*data.forEach((data)=>{
     //Crear un <tr>
     const $tr = document.createElement("tr");
     //Crear el <td> de Country y se une con el tr
@@ -175,6 +174,6 @@ data.forEach(data=>{
     $tr.appendChild($tdBronze);
     //<tr> se agrega al cuerpo de la tabla 
     $bodytable.appendChild($tr);
-});
+});*/
 
-
+console.log(data);
