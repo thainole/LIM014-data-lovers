@@ -42,7 +42,7 @@ const showAthletes = (data) => {
 
             readMore.addEventListener("click", () => {
                 popUp.style.display = "block";
-                popUpContent.innerHTML =showAthletesFullData(athletes);
+                popUpContent.innerHTML = showAthletesFullData(athletes);
             });
         };
     });
@@ -78,10 +78,10 @@ const showAthletesFullData = (athletes) => {
 
 
 // Crear listas de opciones (teams y sports)
-const teams = [...new Set(repeatedTeams)].sort((a, b) => a > b ? 1 : -1); 
+const teams = [...new Set(repeatedTeams)].sort((a, b) => a > b ? 1 : -1);
 const sports = [...new Set(repeatedSports)].sort((a, b) => a > b ? 1 : -1);
 
-function listOfOptions (selectCategory, list) {
+function listOfOptions(selectCategory, list) {
     for (let i = 0; i < list.length; i++) {
         let option = document.createElement("option"),
             txt = document.createTextNode(list[i]);
@@ -135,3 +135,4 @@ function champsPage() {
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
 }
+//linea 26 from MC//
