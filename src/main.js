@@ -10,6 +10,7 @@ const homeButton = document.getElementById("home-button");
 const champsButton = document.getElementById("champs-button");
 const anotherChampsButton = document.getElementById("another-champs-button");
 /* const statsButton = document.getElementById("stats-button"); */
+let search = document.querySelector("#search");
 
 
 // Mostrar atletas en las tarjetas y pop up
@@ -87,6 +88,15 @@ const repeatedSports = mapSport(athletesData);
 const sports = [...new Set(repeatedSports)].sort((a, b) => a > b ? 1 : -1);
 console.log(sports);
 
+
+// Search
+const filtrar = () => {
+    const text = search.value.toLowerCase() //el valor de lo que se puso en el index
+    for (let athlete of athletesData) { // for of que funciona en arrays
+        let name = athlete.name.toLowerCase(); // para que al bucar, todo sea en minuscula
+        if (name.indexOf(text) !== -1) // retorna el elemento si existe, que sea true 
+    } 
+}
 
 // Consola para verificar que funcionen los filtros
 console.log(filterTeam(athletesData, "Italy"));
