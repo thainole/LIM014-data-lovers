@@ -30,7 +30,9 @@ export const mapTeam = (data) => {
 
 export const mapSport = (data) => {
   return data.map(athletes => athletes.sport);
-}
+};
+
+
 
 
 /*export const sortByName = (data, sortData) => {

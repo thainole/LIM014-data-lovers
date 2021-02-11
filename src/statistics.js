@@ -9,8 +9,9 @@ const champsButton = document.getElementById("champs-button");
 /* const statsButton = document.getElementById("stats-button"); */
 
 
-console.log("Medallas " , filterMedalla(athletesData,"Great Britain","Bronze"));
-
+console.log("Medallas " , filterMedalla(athletesData,"Italy","Gold"));
+console.log("Medallas " , filterMedalla(athletesData,"Italy","SIlver"));
+console.log("Medallas " , filterMedalla(athletesData,"Italy","Bronze"));
  
  
 

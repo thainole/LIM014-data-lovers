@@ -11,8 +11,6 @@ const homeButton = document.getElementById("home-button");
 const statsButton = document.getElementById("stats-button");
 const champsButton = document.getElementById("champs-button");
 const anotherChampsButton = document.getElementById("another-champs-button");
-/* const statsButton = document.getElementById("stats-button"); */
-
 
 filterMedalla(athletesData,"Jordan","Gold");
 
@@ -102,15 +100,19 @@ console.log(filterGender(athletesData, "M"));
 // Fincionalidad de la barra de navegación
 homeButton.addEventListener("click", homePage);
 function homePage() {
-    document.querySelector(".home-main").style.display = "block";
+    window.location.assign('./index.html');
+    document.querySelector("home-main").style.display = "bloxk";
     document.querySelector(".page-search").style.display = "none";
+
 }
 
 anotherChampsButton.addEventListener("click", champsPage);
 champsButton.addEventListener("click", champsPage);
 function champsPage () {
-    document.querySelector(".page-search").style.display="block";
-    document.querySelector(".home-main").style.display="none";
+    document.querySelector(".page.search").style.display = "block";
+    document.querySelector(".home-main").style.display = "none"
+    window.location.assign('./index.html');
+
 }
 statsButton.addEventListener("click", statsPage);
 function statsPage () {
@@ -121,3 +123,29 @@ function statsPage () {
 //Statistics HTML 
 //let sumaDeMedallas =0;
 //for(let i=0; i<=athletesData.length;i++){}
+
+//Dibujar tabla
+const $bodytable = document.querySelector("#bodytable");
+//Recorrer la data
+data.forEach(data=>{
+    //Crear un <tr>
+    const $tr = document.createElement("tr");
+    //Crear el <td> de Country y se une con el tr
+    let $tdCountry = document.createElement("td");
+    $tdCountry.textContent = team.country; 
+    $tr.appendChild($tdCountry);
+    //Td de medalla de oro 
+    let $tdGolden = document.createElement("td");
+    $tdGolden.textContent = golden.golden;
+    $tr.appendChild($tdGolden)
+    //td de medalla de plata
+    let $tdSilver = document.createElement("td");
+    $tdSilver.textContent = silver.silver;
+    $tr.appendChild($tdSilver)
+    //td de medalla de bronce
+    let $tdBronze = document.createElement("td");
+    $tdBronze.textContent = bronze.bronze;
+    $tr.appendChild($tdBronze);
+    //<tr> se agrega al cuerpo de la tabla 
+    $bodytable.appendChild($tr);
+});
