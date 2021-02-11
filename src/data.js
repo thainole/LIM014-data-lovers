@@ -10,6 +10,12 @@ export const filterSport = (data, condition) => {
 export const filterGender = (data, condition) => {
   return data.filter(athletes => athletes.gender.includes(condition));
 }
+// data - peru - 
+export const filterMedalla = (data, conditionCountry, conditionMedal) => {
+  let objCountry = data.filter(athletes => athletes.team.includes(conditionCountry));
+  return objCountry.filter(medallas => medallas.medal.includes(conditionMedal)).length;
+}
+  
 
 //Sort 
 export const sortByName = (data) => {
@@ -24,7 +30,9 @@ export const mapTeam = (data) => {
 
 export const mapSport = (data) => {
   return data.map(athletes => athletes.sport);
-}
+};
+
+
 
 
 /*export const sortByName = (data, sortData) => {
