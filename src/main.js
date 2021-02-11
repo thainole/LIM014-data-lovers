@@ -94,8 +94,11 @@ const filtrar = () => {
     const text = search.value.toLowerCase() //el valor de lo que se puso en el index
     for (let athlete of athletesData) { // for of que funciona en arrays
         let name = athlete.name.toLowerCase(); // para que al bucar, todo sea en minuscula
-        if (name.indexOf(text) !== -1) // retorna el elemento si existe, que sea true 
+        if (name.indexOf(text) !== -1) { // retorna el elemento si existe, que sea true 
+            showAthletes(athletesData).name
+        }
     } 
+    if ()
 }
 
 // Consola para verificar que funcionen los filtros
