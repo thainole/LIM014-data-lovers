@@ -95,7 +95,6 @@ listOfOptions(selectTeam, teams);
 listOfOptions(selectSport, sports);
 
 
-
 // Search
 /*const filtrar = () => {
     const text = search.value.toLowerCase() //el valor de lo que se puso en el index
@@ -111,6 +110,7 @@ listOfOptions(selectSport, sports);
 }
 search.addEventListener("input", filtrar);
 */
+
 
 // Consola para verificar que funcionen los filtros
 console.log(filterTeam(athletesData, "Italy"));
