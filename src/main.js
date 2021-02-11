@@ -111,6 +111,7 @@ console.log(filterGender(athletesData, "M"));
 
 // Fincionalidad de la barra de navegación
 homeButton.addEventListener("click", homePage);
+
 function homePage() {
     document.querySelector(".home-main").style.display = "block";
     document.querySelector(".page-search").style.display = "none";
@@ -118,6 +119,7 @@ function homePage() {
 
 anotherChampsButton.addEventListener("click", champsPage);
 champsButton.addEventListener("click", champsPage);
+
 function champsPage() {
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
