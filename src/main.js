@@ -77,9 +77,10 @@ let showAthletesFullData = (athletes) => {
 
 // Lista de países en orden alfabético
 const repeatedTeams = mapTeam(athletesData);
-const teams = [...new Set(repeatedTeams)].sort((a, b) => a > b ? 1 : -1);
-console.log(teams);
-
+const teams = [...new Set(repeatedTeams)].sort((a, b) => a > b ? 1 : -1); // array de opciones
+let selectTeam = document.getElementById("select-team");
+const options = teams.options
+// https://aprende-web.net/javascript/js7_3.php 
 
 // Lista de deportes en orden alfabético
 const repeatedSports = mapSport(athletesData);
@@ -105,6 +106,6 @@ function homePage() {
 anotherChampsButton.addEventListener("click", champsPage);
 champsButton.addEventListener("click", champsPage);
 function champsPage() {
-    document.querySelector(".page-search").style.display = "block"
+    document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
 }
