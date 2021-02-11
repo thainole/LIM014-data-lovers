@@ -98,7 +98,6 @@ const filtrar = () => {
             showAthletes(athletesData).name
         }
     }
-    if ()
 }
 
 // Consola para verificar que funcionen los filtros
@@ -120,12 +119,6 @@ function homePage() {
 anotherChampsButton.addEventListener("click", champsPage);
 champsButton.addEventListener("click", champsPage);
 
-function champsPage() {
-    document.querySelector(".page-search").style.display = "block";
-    document.querySelector(".home-main").style.display = "none";
-}
-
-//changes from MC"//
 function champsPage() {
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
