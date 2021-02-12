@@ -1,4 +1,4 @@
-import {sortAz, filterName, filterGender, filterTeam, filterSport, mapTeam, mapSport,  filterMedalla,} from './data.js';
+import {sortByAz, sortByZa, filterName, filterGender, filterTeam, filterSport, mapTeam, mapSport,  filterMedalla,} from './data.js';
 import data from './data/athletes/athletes.js';
 
  
@@ -107,6 +107,10 @@ searchBar.addEventListener("input", () => {
         showAthletes(filteredNames);
     }
 });
+
+// Ordenar A-Z
+
+
 
 
 // Funcionalidad de la barra de navegación
