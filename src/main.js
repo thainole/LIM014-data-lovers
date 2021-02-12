@@ -1,9 +1,10 @@
-import {filterMedalla, filterTeam, filterSport, filterGender, mapTeam, mapSport, sortByName } from './data.js';
+import {filterMedalla, filterTeam, filterSport, filterGender, mapTeam, mapSport, sortByName, filterName } from './data.js';
+import athletes from './data/athletes/athletes.js';
 import data from './data/athletes/athletes.js';
 
  
 // Declarando variables
-const athletesData = data.athletes;
+let athletesData = data.athletes;
 const resultsPage = document.querySelector(".page-search__main__results-area__grid");
 const popUp = document.querySelector(".page-search__pop-up-wrapper");
 const popUpContent = document.querySelector(".page-search__pop-up-content");
@@ -16,9 +17,9 @@ const repeatedTeams = mapTeam(athletesData);
 const selectTeam = document.getElementById("select-team");
 const repeatedSports = mapSport(athletesData);
 const selectSport = document.getElementById("select-sport");
-/*let search = document.querySelector("#search");*/
+const searchButton = document.querySelector("#search-button");
+let searchBar = document.querySelector("#search-bar");
 
-filterMedalla(athletesData,"Jordan","Gold");
 
 // Mostrar atletas en las tarjetas y pop up
 const showAthletes = (data) => {
@@ -99,36 +100,23 @@ listOfOptions(selectSport, sports);
 
 
 // Search
-/*const filtrar = () => {
-    const text = search.value.toLowerCase() //el valor de lo que se puso en el index
-    for (let athlete of athletesData) { // for of que funciona en arrays
-        let name = athlete.name.toLowerCase(); // para que al bucar, todo sea en minuscula
-        if (name.indexOf(text) !== -1) { // retorna el elemento si existe, que sea true 
-            showAthletes(text);
-        }
-    } 
-    if (text ==="") {
-        resultsPage.innerHTML = `No se han encontrado resultados` ;
-    }
-}
-search.addEventListener("input", filtrar);
-*/
+searchBar.addEventListener("keyup", (e)=>{ //e es una funcion de objeto, keyup es cada que tecleemos algo
+    const searchString = e.target.value; // 
+    const filteredNames = athletesData.filter( athlete => {
+        return athlete.name.includes(searchString);
+    });
+    //console.log(filteredNames);
+    showAthletes(filteredNames);
+});
 
 
-// Consola para verificar que funcionen los filtros
-console.log(filterTeam(athletesData, "Italy"));
-console.log(filterSport(athletesData, "Handball"));
-console.log(sortByName(athletesData));
-console.log(filterGender(athletesData, "F"));
-console.log(filterGender(athletesData, "M"));
 
 
 // Funcionalidad de la barra de navegación
 homeButton.addEventListener("click", homePage);
-
 function homePage() {
     window.location.assign('./index.html');
-    document.querySelector("home-main").style.display = "bloxk";
+    document.querySelector("home-main").style.display = "block";
     document.querySelector(".page-search").style.display = "none";
 
 }
@@ -145,9 +133,11 @@ function statsPage () {
     window.location.assign('./statistics.html');
 }
 
+
 //Statistics HTML 
 //let sumaDeMedallas =0;
 //for(let i=0; i<=athletesData.length;i++){}
+filterMedalla(athletesData,"Jordan","Gold");
 
 //Dibujar tabla
 const $bodytable = document.querySelector("#bodytable");
@@ -176,4 +166,3 @@ const $bodytable = document.querySelector("#bodytable");
     $bodytable.appendChild($tr);
 });*/
 
-console.log(data);

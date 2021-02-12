@@ -3,6 +3,10 @@ export const filterTeam = (data, condition) => {
   return data.filter(athletes => athletes.team.includes(condition));
 };
 
+export const filterName = (data, condition) => {
+  return data.filter(athletes => athletes.name.includes(condition));
+};
+
 export const filterSport = (data, condition) => {
   return data.filter(athletes => athletes.sport.includes(condition));
 };
