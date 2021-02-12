@@ -1,4 +1,4 @@
-import {sortByName, filterName, filterGender, filterTeam, filterSport, mapTeam, mapSport,  filterMedalla,} from './data.js';
+import {sortAz, filterName, filterGender, filterTeam, filterSport, mapTeam, mapSport,  filterMedalla,} from './data.js';
 import data from './data/athletes/athletes.js';
 
  

@@ -22,7 +22,7 @@ export const filterMedalla = (data, conditionCountry, conditionMedal) => {
   
 
 //Sort 
-export const sortByName = (data) => {
+export const sortAz = (data) => {
   return data.sort((a,b) => (a.name > b.name ? 1 : -1));
 };
 
