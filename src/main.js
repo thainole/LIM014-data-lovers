@@ -1,10 +1,9 @@
-import {filterMedalla, filterTeam, filterSport, filterGender, mapTeam, mapSport, sortByName, filterName } from './data.js';
-import athletes from './data/athletes/athletes.js';
+import {sortByName, filterName, filterGender, filterTeam, filterSport, mapTeam, mapSport,  filterMedalla,} from './data.js';
 import data from './data/athletes/athletes.js';
 
  
 // Declarando variables
-let athletesData = data.athletes;
+const athletesData = data.athletes;
 const resultsPage = document.querySelector(".page-search__main__results-area__grid");
 const popUp = document.querySelector(".page-search__pop-up-wrapper");
 const popUpContent = document.querySelector(".page-search__pop-up-content");
@@ -17,8 +16,7 @@ const repeatedTeams = mapTeam(athletesData);
 const selectTeam = document.getElementById("select-team");
 const repeatedSports = mapSport(athletesData);
 const selectSport = document.getElementById("select-sport");
-const searchButton = document.querySelector("#search-button");
-let searchBar = document.querySelector("#search-bar");
+const searchBar = document.querySelector("#search-bar");
 
 
 // Mostrar atletas en las tarjetas y pop up
@@ -26,7 +24,7 @@ const showAthletes = (data) => {
     let counter = 0;
     data.forEach((athletes) => {
         counter++;
-        if (counter <= 40) {
+        if (counter <= 30) {
             const div = document.createElement("div");
             div.classList.add("card");
             div.innerHTML = `
@@ -52,7 +50,6 @@ const showAthletes = (data) => {
     });
     return showAthletes;
 }
-showAthletes(athletesData);
 
 popUpClose.addEventListener("click", () => {
     popUp.style.display = "none";
@@ -99,24 +96,23 @@ listOfOptions(selectTeam, teams);
 listOfOptions(selectSport, sports);
 
 
-// Search
-searchBar.addEventListener("keyup", (e)=>{ //e es una funcion de objeto, keyup es cada que tecleemos algo
-    const searchString = e.target.value; // 
-    const filteredNames = athletesData.filter( athlete => {
-        return athlete.name.includes(searchString);
-    });
-    //console.log(filteredNames);
-    showAthletes(filteredNames);
+// Barra de búsqueda
+searchBar.addEventListener("input", () => { 
+    const searchString = searchBar.value.toLowerCase(); //
+    const filteredNames = filterName(athletesData, searchString);
+    if (filteredNames.length == 0) {
+        resultsPage.textContent = "No matches found. Try with another name";
+    } else {
+        resultsPage.innerHTML="";
+        showAthletes(filteredNames);
+    }
 });
-
-
 
 
 // Funcionalidad de la barra de navegación
 homeButton.addEventListener("click", homePage);
 function homePage() {
-    window.location.assign('./index.html');
-    document.querySelector("home-main").style.display = "block";
+    document.querySelector(".home-main").style.display = "block";
     document.querySelector(".page-search").style.display = "none";
 
 }
@@ -126,6 +122,7 @@ champsButton.addEventListener("click", champsPage);
 function champsPage () {
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
+    showAthletes(athletesData);
 }
 
 statsButton.addEventListener("click", statsPage);

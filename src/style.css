@@ -367,9 +367,6 @@ header {
     color: white;
     font-weight: bold;
 }
-.filter--yellow #search{
-    font-size: 20px;
-}
 
 .filter__select-group {
     display: flex;
@@ -382,23 +379,13 @@ header {
     font-size: 22px;
 }
 
-.filter--search{
-    justify-content: space-between;
-}
-.filter--search input {
+.page-search__main__filter-area__filter-group input {
     border: white;
     border-radius: 50px; 
     font-size: 20px;
+    justify-self: center;
 }
 
-.filter--search button {
-    border-radius: 50px;
-    border: white;
-    font-weight:600;
-    cursor: pointer;
-    font-size: 20px;
-
-}
 .filter select {
     border: white;
     border-radius: 50px;

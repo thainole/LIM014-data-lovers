@@ -4,7 +4,7 @@ export const filterTeam = (data, condition) => {
 };
 
 export const filterName = (data, condition) => {
-  return data.filter(athletes => athletes.name.includes(condition));
+  return data.filter(athletes => athletes.name.toLowerCase().includes(condition));
 };
 
 export const filterSport = (data, condition) => {
