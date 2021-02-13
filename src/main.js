@@ -17,6 +17,8 @@ const selectTeam = document.getElementById("select-team");
 const repeatedSports = mapSport(athletesData);
 const selectSport = document.getElementById("select-sport");
 const searchBar = document.querySelector("#search-bar");
+const selectOrder = document.querySelector(".select--order");
+
 
 
 // Mostrar atletas en las tarjetas y pop up
@@ -24,7 +26,7 @@ const showAthletes = (data) => {
     let counter = 0;
     data.forEach((athletes) => {
         counter++;
-        if (counter <= 30) {
+        if (counter <= 100) {
             const div = document.createElement("div");
             div.classList.add("card");
             div.innerHTML = `
@@ -78,6 +80,7 @@ const showAthletesFullData = (athletes) => {
 };
 
 
+
 // Crear listas de opciones (teams y sports)
 const teams = [...new Set(repeatedTeams)].sort((a, b) => a > b ? 1 : -1);
 const sports = [...new Set(repeatedSports)].sort((a, b) => a > b ? 1 : -1);
@@ -96,6 +99,7 @@ listOfOptions(selectTeam, teams);
 listOfOptions(selectSport, sports);
 
 
+
 // Barra de búsqueda
 searchBar.addEventListener("input", () => { 
     const searchString = searchBar.value.toLowerCase(); //
@@ -108,8 +112,18 @@ searchBar.addEventListener("input", () => {
     }
 });
 
-// Ordenar A-Z
 
+
+// Ordenar por nombre
+selectOrder.addEventListener("change", ()=>{
+    if (selectOrder.value=="a-z") {
+        resultsPage.innerHTML="";
+        showAthletes(sortByAz(athletesData));
+    } else if (selectOrder.value=="z-a") {
+        resultsPage.innerHTML="";
+        showAthletes(sortByZa(athletesData));
+    };
+});
 
 
 
@@ -118,7 +132,6 @@ homeButton.addEventListener("click", homePage);
 function homePage() {
     document.querySelector(".home-main").style.display = "block";
     document.querySelector(".page-search").style.display = "none";
-
 }
 
 anotherChampsButton.addEventListener("click", champsPage);
@@ -133,6 +146,7 @@ statsButton.addEventListener("click", statsPage);
 function statsPage () {
     window.location.assign('./statistics.html');
 }
+
 
 
 //Statistics HTML 

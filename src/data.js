@@ -21,10 +21,28 @@ export const filterMedalla = (data, conditionCountry, conditionMedal) => {
 }
   
 
+
 //Sort 
-//export const sortAz = (data) => {
-  //return data.sort((a,b) => (a.name > b.name ? 1 : -1));
-// };
+export const sortByAz = (data) => data.sort((a,b) => {
+  if (a.name > b.name) {
+    return 1;
+  } else if (a.name < b.name) {
+    return -1; 
+  } else {
+    return 0;
+  };
+});
+
+export const sortByZa = (data) => data.sort((a,b) => {
+  if (a.name < b.name) {
+    return 1;
+  } else if (a.name > b.name) {
+    return -1;
+  } else {
+    return 0;
+  }
+});
+
 
 
 //Map
@@ -39,22 +57,3 @@ export const mapSport = (data) => {
 
 
 
-export const sortByAz = (data) => data.sort((a,b) => {
-    if (a.name > b.name) {
-      return 1;
-    } else if (a.name < b.name) {
-      return -1; 
-    } else {
-      return 0;
-    };
-  });
-
-  export const sortByZa = (data) => data.sort((a,b) => {
-    if (a.name < b.name) {
-      return 1;
-    } else if (a.name > b.name) {
-      return -1;
-    } else {
-      return 0;
-    }
-  });
