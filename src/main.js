@@ -18,7 +18,6 @@ const repeatedSports = mapSport(athletesData);
 const selectSport = document.getElementById("select-sport");
 /*let search = document.querySelector("#search");*/
 
-filterMedalla(athletesData,"Jordan","Gold");
 
 // Mostrar atletas en las tarjetas y pop up
 const showAthletes = (data) => {
@@ -148,32 +147,3 @@ function statsPage () {
 //Statistics HTML 
 //let sumaDeMedallas =0;
 //for(let i=0; i<=athletesData.length;i++){}
-
-//Dibujar tabla
-const $bodytable = document.querySelector("#bodytable");
-
-//Recorrer la data
-/*data.forEach((data)=>{
-    //Crear un <tr>
-    const $tr = document.createElement("tr");
-    //Crear el <td> de Country y se une con el tr
-    let $tdCountry = document.createElement("td");
-    $tdCountry.textContent = team.country; 
-    $tr.appendChild($tdCountry);
-    //Td de medalla de oro 
-    let $tdGolden = document.createElement("td");
-    $tdGolden.textContent = golden.golden;
-    $tr.appendChild($tdGolden)
-    //td de medalla de plata
-    let $tdSilver = document.createElement("td");
-    $tdSilver.textContent = silver.silver;
-    $tr.appendChild($tdSilver)
-    //td de medalla de bronce
-    let $tdBronze = document.createElement("td");
-    $tdBronze.textContent = bronze.bronze;
-    $tr.appendChild($tdBronze);
-    //<tr> se agrega al cuerpo de la tabla 
-    $bodytable.appendChild($tr);
-});*/
-
-console.log(data);

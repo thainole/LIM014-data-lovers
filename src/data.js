@@ -22,16 +22,15 @@ export const sortByName = (data) => {
   return data.sort((a,b) => (a.name > b.name ? 1 : -1));
 };
 
-
 //Map
-export const mapTeam = (data) => {
-  return data.map(athletes => athletes.team);
-};
-
 export const mapSport = (data) => {
   return data.map(athletes => athletes.sport);
 };
 
+//Tabla, por cada atleta que encuentre de la data, devuelve el equipo del atleta y crea un array con todos los atletas
+export const mapTeam = (data) => {
+  return data.map(athletes => athletes.team);
+};
 
 
 
