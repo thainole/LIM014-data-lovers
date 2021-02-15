@@ -52,7 +52,7 @@
 
             </div>
             <div class="home-main__intro__cta">
-                <button class="button" id="another-champs-button" >See all <br>champions</button>
+                <button class="button" id="another-champs-button">See all <br>champions</button>
             </div>
         </section>
 
@@ -97,17 +97,15 @@
 
                     <div class="filter filter--yellow">
                         <label class="filter__label"> Sort by:</label>
-                        <select class="filter__select">
+                        <select class="filter__select select--order">
                             <option value="All" id="select">Select</option>
                             <option value="a-z" id="a-z">A-Z</option>
                             <option value="z-a" id="z-a">Z-A</option>
-                            <!--<option value="high-medals">Highest # of medals</option>
-                            <option value="low-medals">Lowest # of medals</option> -->
                         </select>
                     </div>
 
                     <div class="filter filter--yellow">
-                        <input type="text" placeholder="  Search..." id="search">
+                        <input type="text" placeholder="Search athlete's name" id="search-bar">
                     </div>
                 </div>
                 <!-- Main Group -->
@@ -118,13 +116,13 @@
 
                         <div class="filter__select-group">
                             <div class="filter__select-group__input-group">
-                                <input type="checkbox" checked="checked">
+                                <input type="checkbox" checked="checked" id="check-female">
                                 <label class="filter__select-group__label">Female
                                 </label>
                             </div>
 
                             <div class="filter__select-group__input-group">
-                                <input type="checkbox" checked="checked">
+                                <input type="checkbox" checked="checked" id="check-male">
                                 <label class="filter__select-group__label">Male
                                 </label>
                             </div>
@@ -137,14 +135,21 @@
                     <div class="filter">
                         <label class="filter__label"><strong>Team: </strong></label>
                         <select id="select-team">
-                            <option value="All">All</option>
+                            <option value="">All</option>
                         </select>
                     </div>
 
                     <div class="filter">
                         <label class="filter__label"><strong>Sport: </strong></label>
                         <select id="select-sport">
-                            <option value="All">All</option>
+                            <option value="">All</option>
+                        </select>
+                    </div>
+
+                    <div class="filter">
+                        <label class="filter__label"><strong>Event: </strong></label>
+                        <select id="select-event">
+                            <option value="">All</option>
                         </select>
                     </div>
 
@@ -158,7 +163,7 @@
             </div>
             <div class="page-search__pop-up-wrapper">
                 <div class="page-search__pop-up">
-                    <div class ="page-search__pop-up-close"><strong>x</strong></div>
+                    <div class="page-search__pop-up-close"><strong>x</strong></div>
                     <div class="page-search__pop-up-content "></div>
                 </div>
             </div>
