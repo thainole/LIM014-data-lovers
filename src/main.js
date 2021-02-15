@@ -303,14 +303,3 @@ statsButton.addEventListener("click", statsPage);
 function statsPage() {
     window.location.assign('./statistics.html');
 }
-
-
-
-//Statistics HTML 
-//let sumaDeMedallas =0;
-<<<<<<< HEAD
-//for(let i=0; i<=athletesData.length;i++){}
-=======
-
-
->>>>>>> ff5d2b2d08beb0fbaca520357269bf3e782a5cb1
