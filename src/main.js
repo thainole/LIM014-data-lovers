@@ -1,5 +1,5 @@
 import { sortByAz, sortByZa, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, filterFemale, filterMale } from './data.js';
-import data from './data/athletes/athletes.js';
+import data from './data/athletes/athletes.js'; 
 
 
 // Declarando variables
@@ -292,6 +292,7 @@ anotherChampsButton.addEventListener("click", champsPage);
 champsButton.addEventListener("click", champsPage);
 
 function champsPage() {
+    console.log("click");
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
     showAthletes(athletesData);
@@ -307,32 +308,9 @@ function statsPage() {
 
 //Statistics HTML 
 //let sumaDeMedallas =0;
+<<<<<<< HEAD
 //for(let i=0; i<=athletesData.length;i++){}
-// filterMedalla(athletesData, "Jordan", "Gold");
+=======
 
-//Dibujar tabla
-const $bodytable = document.querySelector("#bodytable");
 
-//Recorrer la data
-/*data.forEach((data)=>{
-    //Crear un <tr>
-    const $tr = document.createElement("tr");
-    //Crear el <td> de Country y se une con el tr
-    let $tdCountry = document.createElement("td");
-    $tdCountry.textContent = team.country; 
-    $tr.appendChild($tdCountry);
-    //Td de medalla de oro 
-    let $tdGolden = document.createElement("td");
-    $tdGolden.textContent = golden.golden;
-    $tr.appendChild($tdGolden)
-    //td de medalla de plata
-    let $tdSilver = document.createElement("td");
-    $tdSilver.textContent = silver.silver;
-    $tr.appendChild($tdSilver)
-    //td de medalla de bronce
-    let $tdBronze = document.createElement("td");
-    $tdBronze.textContent = bronze.bronze;
-    $tr.appendChild($tdBronze);
-    //<tr> se agrega al cuerpo de la tabla 
-    $bodytable.appendChild($tr);
-});*/
+>>>>>>> ff5d2b2d08beb0fbaca520357269bf3e782a5cb1
