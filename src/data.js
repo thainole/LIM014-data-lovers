@@ -68,8 +68,11 @@ export const sortByZa = (data) => data.sort((a, b) => {
 
 
 //Map
+<<<<<<< HEAD
  
 
+=======
+>>>>>>> ff5d2b2d08beb0fbaca520357269bf3e782a5cb1
 export const mapSport = (data) => {
     return data.map(athletes => athletes.sport);
 };
@@ -90,7 +93,10 @@ export const mapTeam = (data) => {
   }
 };*/
 
+<<<<<<< HEAD
 
 export const mapEvent = (data) => {
     return data.map(athletes => athletes.event);
 };
+=======
+>>>>>>> ff5d2b2d08beb0fbaca520357269bf3e782a5cb1
