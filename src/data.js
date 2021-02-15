@@ -37,11 +37,11 @@ export const filterMale = (data) => {
 // export const filterGender = (data) => {
 //         return data.filter(athletes => athletes.gender.includes(condition));
 //     }
-//     // data - peru - 
-// export const filterMedalla = (data, conditionCountry, conditionMedal) => {
-//     let objCountry = data.filter(athletes => athletes.team.includes(conditionCountry));
-//     return objCountry.filter(medallas => medallas.medal.includes(conditionMedal)).length;
-// }
+// data - peru - 
+export const filterMedalla = (data, conditionCountry, conditionMedal) => {
+let objCountry = data.filter(athletes => athletes.team.includes(conditionCountry));
+return objCountry.filter(medallas => medallas.medal.includes(conditionMedal)).length;
+}
 
 
 
@@ -68,9 +68,7 @@ export const sortByZa = (data) => data.sort((a, b) => {
 
 
 //Map
-export const mapTeam = (data) => {
-    return data.map(athletes => athletes.team);
-};
+ 
 
 export const mapSport = (data) => {
     return data.map(athletes => athletes.sport);

@@ -1,4 +1,4 @@
-import {filterMedalla, mapTeam, sortByName } from './data.js';
+import {filterMedalla, mapTeam } from './data.js';
 import data from './data/athletes/athletes.js';
 
 
@@ -18,7 +18,7 @@ medalsTeam.map(team => {
     
 })
 
-unitedTeam.forEach((team) => {
+unitedTeam.forEach((team) => { 
     const container = document.createElement('tr'); 
     let medallasOro = filterMedalla(athletesData, team,"Gold")
     let medallasSilver = filterMedalla(athletesData,team,"Silver")

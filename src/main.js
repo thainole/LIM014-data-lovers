@@ -1,5 +1,5 @@
 import { sortByAz, sortByZa, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, filterFemale, filterMale } from './data.js';
-import data from './data/athletes/athletes.js';
+import data from './data/athletes/athletes.js'; 
 
 
 // Declarando variables
@@ -292,6 +292,7 @@ anotherChampsButton.addEventListener("click", champsPage);
 champsButton.addEventListener("click", champsPage);
 
 function champsPage() {
+    console.log("click");
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
     showAthletes(athletesData);
