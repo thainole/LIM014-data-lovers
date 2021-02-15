@@ -263,6 +263,7 @@ header {
 
 .card {
     width: 240px;
+    height: fit-content;
     margin: 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
     transition: 0.4s;
@@ -367,9 +368,6 @@ header {
     color: white;
     font-weight: bold;
 }
-.filter--yellow #search{
-    font-size: 22px;
-}
 
 .filter__select-group {
     display: flex;
@@ -384,9 +382,9 @@ header {
 
 .page-search__main__filter-area__filter-group input {
     border: white;
-    border-radius: 50px;
+    border-radius: 50px; 
+    font-size: 20px;
     justify-self: center;
-    font-size: 18px;
 }
 
 .filter select {
