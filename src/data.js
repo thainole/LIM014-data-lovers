@@ -34,8 +34,8 @@ export const filterMale = (data) => {
 };
 
 export const filterMedalla = (data, conditionCountry, conditionMedal) => {
-let objCountry = data.filter(athletes => athletes.team.includes(conditionCountry));
-return objCountry.filter(medallas => medallas.medal.includes(conditionMedal)).length;
+    let objCountry = data.filter(athletes => athletes.team.includes(conditionCountry));
+    return objCountry.filter(medallas => medallas.medal.includes(conditionMedal)).length;
 }
 
 
@@ -64,14 +64,14 @@ export const sortByZa = (data) => data.sort((a, b) => {
 
 
 //Map
- 
+
 export const mapSport = (data) => {
     return data.map(athletes => athletes.sport);
 };
 
 //Tabla, por cada atleta que encuentre de la data, devuelve el equipo del atleta y crea un array con todos los atletas
 export const mapTeam = (data) => {
-  return data.map(athletes => athletes.team);
+    return data.map(athletes => athletes.team);
 };
 
 export const mapEvent = (data) => {

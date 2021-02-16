@@ -1,5 +1,5 @@
-import { sortByAz, sortByZa, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, filterFemale, filterMale } from './data.js';
-import data from './data/athletes/athletes.js'; 
+import { sortByAz, sortByZa, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, mapFemale, filterFemale, filterMale } from './data.js';
+import data from './data/athletes/athletes.js';
 
 
 // Declarando variables
@@ -12,6 +12,7 @@ const homeButton = document.getElementById("home-button");
 const statsButton = document.getElementById("stats-button");
 const champsButton = document.getElementById("champs-button");
 const anotherChampsButton = document.getElementById("another-champs-button");
+const womenButton = document.getElementById("womenButton");
 
 const repeatedTeams = mapTeam(athletesData);
 const repeatedSports = mapSport(athletesData);
@@ -198,7 +199,9 @@ selectEvent.addEventListener("change", () => {
 });
 //gender selection
 //gender: female
-selectFemale.addEventListener("change", () => {
+selectFemale.addEventListener("change", selectFemaleFunction);
+
+function selectFemaleFunction() {
     const searchStringSport = selectSport.value.toLowerCase(); //
     let filteredNames = filterSport(athletesData, searchStringSport);
 
@@ -223,7 +226,7 @@ selectFemale.addEventListener("change", () => {
         resultsPage.innerHTML = "";
         showAthletes(filteredNames);
     }
-});
+};
 //gender: male
 selectMale.addEventListener("change", () => {
     const searchStringSport = selectSport.value.toLowerCase(); //
@@ -293,9 +296,26 @@ function homePage() {
 anotherChampsButton.addEventListener("click", champsPage);
 champsButton.addEventListener("click", champsPage);
 
+//women button
+womenButton.addEventListener("click", womenPage);
+
+function womenPage() {
+    let women = filterFemale(athletesData)
+
+    console.log("click");
+    document.querySelector(".page-search").style.display = "block";
+    document.querySelector(".home-main").style.display = "none";
+    resultsPage.innerHTML = ''
+    showAthletes(women);
+
+}
+//
+
+
 function champsPage() {
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
+    resultsPage.innerHTML = ''
     showAthletes(athletesData);
 }
 
