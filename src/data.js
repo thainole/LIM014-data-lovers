@@ -48,7 +48,7 @@ export const sortByAz = (data) => data.sort((a, b) => {
         return -1;
     } else {
         return 0;
-    };
+    }
 });
 
 export const sortByZa = (data) => data.sort((a, b) => {
