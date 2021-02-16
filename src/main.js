@@ -55,7 +55,7 @@ const showAthletes = (data) => {
                 popUp.style.display = "block";
                 popUpContent.innerHTML = showAthletesFullData(athletes);
             });
-        };
+        }
     });
     return showAthletes;
 }
@@ -86,12 +86,14 @@ const showAthletesFullData = (athletes) => {
     return content;
 };
 
-
+let teams = new Set(repeatedTeams);
+let sports = new Set(repeatedSports);
+let events = new Set(repeatedEvents)
 
 // Crear listas de opciones (teams y sports)
-const teams = [...new Set(repeatedTeams)].sort((a, b) => a > b ? 1 : -1);
-const sports = [...new Set(repeatedSports)].sort((a, b) => a > b ? 1 : -1);
-const events = [...new Set(repeatedEvents)].sort((a, b) => a > b ? 1 : -1);
+teams = [...teams].sort((a, b) => a > b ? 1 : -1);
+sports = [...sports].sort((a, b) => a > b ? 1 : -1);
+events = [...events].sort((a, b) => a > b ? 1 : -1);
 
 
 function listOfOptions(selectCategory, list) {
@@ -275,7 +277,7 @@ selectOrder.addEventListener("change", () => {
     } else if (selectOrder.value == "z-a") {
         resultsPage.innerHTML = "";
         showAthletes(sortByZa(athletesData));
-    };
+    }
 });
 
 
@@ -292,7 +294,6 @@ anotherChampsButton.addEventListener("click", champsPage);
 champsButton.addEventListener("click", champsPage);
 
 function champsPage() {
-    console.log("click");
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
     showAthletes(athletesData);

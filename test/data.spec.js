@@ -1,17 +1,17 @@
-import { example, anotherExample } from '../src/data.js';
+import {sortByAz} from '../src/data.js';
 
 
-describe('example', () => {
+describe('Sort by Az', () => {
   it('is a function', () => {
-    expect(typeof example).toBe('function');
+    expect(typeof sortByAz).toBe('function');
   });
 
   it('returns `example`', () => {
-    expect(example()).toBe('example');
+    expect(sortByAz()).toBe('example');
   });
 });
 
-
+/*
 describe('anotherExample', () => {
   it('is a function', () => {
     expect(typeof anotherExample).toBe('function');
@@ -20,4 +20,4 @@ describe('anotherExample', () => {
   it('returns `anotherExample`', () => {
     expect(anotherExample()).toBe('OMG');
   });
-});
+});*/
