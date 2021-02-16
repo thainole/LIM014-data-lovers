@@ -48,7 +48,7 @@ export const sortByAz = (data) => data.sort((a, b) => {
         return -1;
     } else {
         return 0;
-    }
+    };
 });
 
 export const sortByZa = (data) => data.sort((a, b) => {
@@ -77,3 +77,6 @@ export const mapTeam = (data) => {
 export const mapEvent = (data) => {
     return data.map(athletes => athletes.event);
 };
+export const mapFemale = (data) => {
+    return data.map(athletes => athletes.gender === "F");
+}
