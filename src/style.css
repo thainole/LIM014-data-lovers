@@ -437,3 +437,16 @@ p {
     font-size: 26px;
     line-height: 1.5;
 }
+
+table {
+    border-collapse: separate;
+    border-spacing: 5px;
+    background:#2FB14E url("gradient.gif") bottom left repeat-x;
+    text-align: center;
+    margin: 20px;
+ }
+ td, th {
+    background: #fff;
+    color: #000;
+ }
+

@@ -1,4 +1,4 @@
-import { sortByAz, sortByZa, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, mapFemale, filterFemale, filterMale } from './data.js';
+import { sortByAz, sortByZa, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, filterFemale, filterMale } from './data.js';
 import data from './data/athletes/athletes.js';
 
 
@@ -34,7 +34,7 @@ const showAthletes = (data) => {
     let counter = 0;
     data.forEach((athletes) => {
         counter++;
-        if (counter <= 100) {
+        if (counter <= 48) {
             const div = document.createElement("div");
             div.classList.add("card");
             div.innerHTML = `
@@ -114,13 +114,13 @@ listOfOptions(selectEvent, events);
 
 // Team (country) selection
 selectTeam.addEventListener("change", () => {
-    const searchStringSport = selectSport.value.toLowerCase(); //
+    const searchStringSport = selectSport.value; //
     let filteredNames = filterSport(athletesData, searchStringSport);
 
-    const searchStringTeam = selectTeam.value.toLowerCase(); //
+    const searchStringTeam = selectTeam.value; //
     filteredNames = filterTeam(filteredNames, searchStringTeam);
 
-    const searchStringEvent = selectEvent.value.toLowerCase(); //
+    const searchStringEvent = selectEvent.value; //
     filteredNames = filterEvent(filteredNames, searchStringEvent);
 
 
@@ -144,13 +144,13 @@ selectTeam.addEventListener("change", () => {
 //Sport selection
 selectSport.addEventListener("change", () => {
 
-    const searchStringSport = selectSport.value.toLowerCase(); //
+    const searchStringSport = selectSport.value; //
     let filteredNames = filterSport(athletesData, searchStringSport);
 
-    const searchStringTeam = selectTeam.value.toLowerCase(); //
+    const searchStringTeam = selectTeam.value; //
     filteredNames = filterTeam(filteredNames, searchStringTeam);
 
-    const searchStringEvent = selectEvent.value.toLowerCase(); //
+    const searchStringEvent = selectEvent.value; //
     filteredNames = filterEvent(filteredNames, searchStringEvent);
 
     if (selectFemale.checked && !selectMale.checked) {
@@ -172,13 +172,13 @@ selectSport.addEventListener("change", () => {
 
 //selectEvent
 selectEvent.addEventListener("change", () => {
-    const searchStringSport = selectSport.value.toLowerCase(); //
+    const searchStringSport = selectSport.value; //
     let filteredNames = filterSport(athletesData, searchStringSport);
 
-    const searchStringTeam = selectTeam.value.toLowerCase(); //
+    const searchStringTeam = selectTeam.value; //
     filteredNames = filterTeam(filteredNames, searchStringTeam);
 
-    const searchStringEvent = selectEvent.value.toLowerCase(); //
+    const searchStringEvent = selectEvent.value; //
     filteredNames = filterEvent(filteredNames, searchStringEvent);
 
     if (selectFemale.checked && !selectMale.checked) {
@@ -199,16 +199,14 @@ selectEvent.addEventListener("change", () => {
 });
 //gender selection
 //gender: female
-selectFemale.addEventListener("change", selectFemaleFunction);
-
-function selectFemaleFunction() {
-    const searchStringSport = selectSport.value.toLowerCase(); //
+selectFemale.addEventListener("change", () => {
+    const searchStringSport = selectSport.value; //
     let filteredNames = filterSport(athletesData, searchStringSport);
 
-    const searchStringTeam = selectTeam.value.toLowerCase(); //
+    const searchStringTeam = selectTeam.value; //
     filteredNames = filterTeam(filteredNames, searchStringTeam);
 
-    const searchStringEvent = selectEvent.value.toLowerCase(); //
+    const searchStringEvent = selectEvent.value; //
     filteredNames = filterEvent(filteredNames, searchStringEvent);
 
     if (selectFemale.checked && !selectMale.checked) {
@@ -226,16 +224,16 @@ function selectFemaleFunction() {
         resultsPage.innerHTML = "";
         showAthletes(filteredNames);
     }
-};
+});
 //gender: male
 selectMale.addEventListener("change", () => {
-    const searchStringSport = selectSport.value.toLowerCase(); //
+    const searchStringSport = selectSport.value; //
     let filteredNames = filterSport(athletesData, searchStringSport);
 
-    const searchStringTeam = selectTeam.value.toLowerCase(); //
+    const searchStringTeam = selectTeam.value; //
     filteredNames = filterTeam(filteredNames, searchStringTeam);
 
-    const searchStringEvent = selectEvent.value.toLowerCase(); //
+    const searchStringEvent = selectEvent.value; //
     filteredNames = filterEvent(filteredNames, searchStringEvent);
 
     if (selectFemale.checked && !selectMale.checked) {
@@ -258,8 +256,6 @@ selectMale.addEventListener("change", () => {
 
 // Barra de búsqueda
 searchBar.addEventListener("input", () => {
-    //set selected value of DropDown inputs to "" or ALL
-
     const searchString = searchBar.value.toLowerCase(); //
     const filteredNames = filterName(athletesData, searchString);
     if (filteredNames.length == 0) {
@@ -324,3 +320,5 @@ statsButton.addEventListener("click", statsPage);
 function statsPage() {
     window.location.assign('./statistics.html');
 }
+
+
