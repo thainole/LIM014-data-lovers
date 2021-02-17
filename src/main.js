@@ -296,7 +296,6 @@ medalsTeam.map(team => {
 
 //El forEach llena el objeto vacío que es object medals y se crean los keywords
 let objMedals = []; 
-console.log(unitedTeam);
 unitedTeam.forEach((team) => { 
     let medallasOro = filterMedalla(athletesData, team,"Gold")
     let medallasSilver = filterMedalla(athletesData,team,"Silver")
@@ -346,7 +345,6 @@ function homePage() {
 function womenPage() {
     let women = filterFemale(athletesData)
 
-    console.log("click");
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
     document.querySelector(".stats-page").style.display = "none";
