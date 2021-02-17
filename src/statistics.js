@@ -48,4 +48,3 @@ function champsPage () {
 //Statistics HTML 
 //let sumaDeMedallas =0;
 //for(let i=0; i<=athletesData.length;i++){}
-

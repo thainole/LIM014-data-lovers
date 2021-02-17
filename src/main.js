@@ -113,13 +113,13 @@ listOfOptions(selectEvent, events);
 
 // Team (country) selection
 selectTeam.addEventListener("change", () => {
-    const searchStringSport = selectSport.value.toLowerCase(); //
+    const searchStringSport = selectSport.value; //
     let filteredNames = filterSport(athletesData, searchStringSport);
 
-    const searchStringTeam = selectTeam.value.toLowerCase(); //
+    const searchStringTeam = selectTeam.value; //
     filteredNames = filterTeam(filteredNames, searchStringTeam);
 
-    const searchStringEvent = selectEvent.value.toLowerCase(); //
+    const searchStringEvent = selectEvent.value; //
     filteredNames = filterEvent(filteredNames, searchStringEvent);
 
 
@@ -143,13 +143,13 @@ selectTeam.addEventListener("change", () => {
 //Sport selection
 selectSport.addEventListener("change", () => {
 
-    const searchStringSport = selectSport.value.toLowerCase(); //
+    const searchStringSport = selectSport.value; //
     let filteredNames = filterSport(athletesData, searchStringSport);
 
-    const searchStringTeam = selectTeam.value.toLowerCase(); //
+    const searchStringTeam = selectTeam.value; //
     filteredNames = filterTeam(filteredNames, searchStringTeam);
 
-    const searchStringEvent = selectEvent.value.toLowerCase(); //
+    const searchStringEvent = selectEvent.value; //
     filteredNames = filterEvent(filteredNames, searchStringEvent);
 
     if (selectFemale.checked && !selectMale.checked) {
@@ -171,13 +171,13 @@ selectSport.addEventListener("change", () => {
 
 //selectEvent
 selectEvent.addEventListener("change", () => {
-    const searchStringSport = selectSport.value.toLowerCase(); //
+    const searchStringSport = selectSport.value; //
     let filteredNames = filterSport(athletesData, searchStringSport);
 
-    const searchStringTeam = selectTeam.value.toLowerCase(); //
+    const searchStringTeam = selectTeam.value; //
     filteredNames = filterTeam(filteredNames, searchStringTeam);
 
-    const searchStringEvent = selectEvent.value.toLowerCase(); //
+    const searchStringEvent = selectEvent.value; //
     filteredNames = filterEvent(filteredNames, searchStringEvent);
 
     if (selectFemale.checked && !selectMale.checked) {
@@ -199,13 +199,13 @@ selectEvent.addEventListener("change", () => {
 //gender selection
 //gender: female
 selectFemale.addEventListener("change", () => {
-    const searchStringSport = selectSport.value.toLowerCase(); //
+    const searchStringSport = selectSport.value; //
     let filteredNames = filterSport(athletesData, searchStringSport);
 
-    const searchStringTeam = selectTeam.value.toLowerCase(); //
+    const searchStringTeam = selectTeam.value; //
     filteredNames = filterTeam(filteredNames, searchStringTeam);
 
-    const searchStringEvent = selectEvent.value.toLowerCase(); //
+    const searchStringEvent = selectEvent.value; //
     filteredNames = filterEvent(filteredNames, searchStringEvent);
 
     if (selectFemale.checked && !selectMale.checked) {
@@ -226,13 +226,13 @@ selectFemale.addEventListener("change", () => {
 });
 //gender: male
 selectMale.addEventListener("change", () => {
-    const searchStringSport = selectSport.value.toLowerCase(); //
+    const searchStringSport = selectSport.value; //
     let filteredNames = filterSport(athletesData, searchStringSport);
 
-    const searchStringTeam = selectTeam.value.toLowerCase(); //
+    const searchStringTeam = selectTeam.value; //
     filteredNames = filterTeam(filteredNames, searchStringTeam);
 
-    const searchStringEvent = selectEvent.value.toLowerCase(); //
+    const searchStringEvent = selectEvent.value; //
     filteredNames = filterEvent(filteredNames, searchStringEvent);
 
     if (selectFemale.checked && !selectMale.checked) {
@@ -255,8 +255,6 @@ selectMale.addEventListener("change", () => {
 
 // Barra de búsqueda
 searchBar.addEventListener("input", () => {
-    //set selected value of DropDown inputs to "" or ALL
-
     const searchString = searchBar.value.toLowerCase(); //
     const filteredNames = filterName(athletesData, searchString);
     if (filteredNames.length == 0) {
@@ -304,3 +302,5 @@ statsButton.addEventListener("click", statsPage);
 function statsPage() {
     window.location.assign('./statistics.html');
 }
+
+
