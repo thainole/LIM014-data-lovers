@@ -1,4 +1,4 @@
-import { sortByAz, sortByZa, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, filterFemale, filterMale, filterMedalla, sortByTotal} from './data.js';
+import { sortByAz, sortByZa, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, filterFemale, filterMale, filterMedalla, sortByTotal } from './data.js';
 import data from './data/athletes/athletes.js';
 
 
@@ -29,7 +29,7 @@ const selectMale = document.getElementById("check-male");
 const searchBar = document.querySelector("#search-bar");
 const selectOrder = document.querySelector(".select--order");
 
-const medalsTeam =  mapTeam(athletesData);
+const medalsTeam = mapTeam(athletesData);
 const unitedTeam = [];
 
 
@@ -288,43 +288,44 @@ selectOrder.addEventListener("change", () => {
 // Tabla de medallas
 
 medalsTeam.map(team => {
-    if (unitedTeam.includes(team) === false){
+    if (unitedTeam.includes(team) === false) {
         unitedTeam.push(team);
     }
-    
+
 })
 
 //El forEach llena el objeto vacío que es object medals y se crean los keywords
-let objMedals = []; 
-unitedTeam.forEach((team) => { 
-    let medallasOro = filterMedalla(athletesData, team,"Gold")
-    let medallasSilver = filterMedalla(athletesData,team,"Silver")
-    let medallasBronze = filterMedalla(athletesData,team,"Bronze")
-    let total = medallasOro + medallasSilver + medallasBronze; 
+let objMedals = [];
+unitedTeam.forEach((team) => {
+    let medallasOro = filterMedalla(athletesData, team, "Gold")
+    let medallasSilver = filterMedalla(athletesData, team, "Silver")
+    let medallasBronze = filterMedalla(athletesData, team, "Bronze")
+    let total = medallasOro + medallasSilver + medallasBronze;
 
-    objMedals.push({country: team, 
-                golden: medallasOro, 
-                silver: medallasSilver, 
-                bronze: medallasBronze, 
-                total: total}
-                )
+    objMedals.push({
+        country: team,
+        golden: medallasOro,
+        silver: medallasSilver,
+        bronze: medallasBronze,
+        total: total
+    })
 });
 
 /*El forEach pinta la tabla con los objetos ya creados*/
 let objMedalsOrdered = sortByTotal(objMedals, 'dsc');
 
-objMedalsOrdered.forEach((obj) => { 
-    const container = document.createElement('tr');  
+objMedalsOrdered.forEach((obj) => {
+    const container = document.createElement('tr');
     const table = document.getElementById("bodytable");
     table.appendChild(container).innerHTML =
-     `<tr> 
+        `<tr> 
       <td> <strong>${obj.country}</strong> 
       </td><td>${obj.golden}</td>
       </td><td>${obj.silver}</td>
       </td><td>${obj.bronze}</td>
       </td><td>${obj.total}</td>
-      </tr>` 
-      
+      </tr>`
+
 });
 
 // Funcionalidad de la barra de navegación
@@ -345,10 +346,6 @@ function homePage() {
 function womenPage() {
     let women = filterFemale(athletesData)
 
-<<<<<<< HEAD
-    // console.log("click");
-=======
->>>>>>> 6e8571bdcee27fb11980e09b3179b5b01ceee277
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
     document.querySelector(".stats-page").style.display = "none";
@@ -368,14 +365,7 @@ function champsPage() {
 
 
 function statsPage() {
-<<<<<<< HEAD
-    window.location.assign('./statistics.html');
-}
-=======
     document.querySelector(".stats-page").style.display = "block";
     document.querySelector(".page-search").style.display = "none";
     document.querySelector(".home-main").style.display = "none";
 }
-
-
->>>>>>> 6e8571bdcee27fb11980e09b3179b5b01ceee277
