@@ -66,6 +66,7 @@ describe('Sort by Za', () => {
 
 
 
+
 describe('Filter by team', () => {
   it('is a function', () => {
     expect(typeof filterTeam).toBe('function');
@@ -90,6 +91,8 @@ describe('Filter by team', () => {
 
 
 
+
+
 describe('Filter by sport', () => {
   it('is a function', () => {
     expect(typeof filterSport).toBe('function');
@@ -111,6 +114,7 @@ describe('Filter by sport', () => {
     expect(filterSport(data, 'Taekwondo')).toEqual(resultado);
   });
 });
+
 
 
 
@@ -190,7 +194,6 @@ describe('Filter by male gender', () => {
 
 
 
-
 describe('Filter by female gender', () => {
   it('is a function', () => {
     expect(typeof filterFemale).toBe('function');
@@ -212,7 +215,6 @@ describe('Filter by female gender', () => {
     expect(filterFemale(data, 'F')).toEqual(resultado);
   });
 });
-
 
 
 
@@ -264,7 +266,6 @@ describe('Make a new array of every team', () => {
 
 
 
-
 describe('Make a new array of every event', () => {
   it('is a function', () => {
     expect(typeof mapEvent).toBe('function');
@@ -283,7 +284,6 @@ describe('Make a new array of every event', () => {
     expect(mapEvent(data)).toEqual(resultado);
   });
 });
-
 
 
 
