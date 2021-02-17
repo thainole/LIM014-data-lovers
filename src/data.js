@@ -61,6 +61,15 @@ export const sortByZa = (data) => data.sort((a, b) => {
     }
 });
 
+//Orden de tabla de manera descendente
+export const sortByTotal = (data, condition) => {
+ if (condition === 'asc') {
+    return data.sort((a, b) => a.total - b.total);
+  }
+  else {
+    return data.sort((a, b) => b.total - a.total);
+  }
+}
 
 
 //Map
