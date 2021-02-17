@@ -1,5 +1,5 @@
-import { sortByAz, sortByZa, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, filterFemale, filterMale } from './data.js';
-import data from './data/athletes/athletes.js'; 
+import { sortByAz, sortByZa, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, mapFemale, filterFemale, filterMale } from './data.js';
+import data from './data/athletes/athletes.js';
 
 
 // Declarando variables
@@ -12,6 +12,7 @@ const homeButton = document.getElementById("home-button");
 const statsButton = document.getElementById("stats-button");
 const champsButton = document.getElementById("champs-button");
 const anotherChampsButton = document.getElementById("another-champs-button");
+const womenButton = document.getElementById("womenButton");
 
 const repeatedTeams = mapTeam(athletesData);
 const repeatedSports = mapSport(athletesData);
@@ -55,7 +56,7 @@ const showAthletes = (data) => {
                 popUp.style.display = "block";
                 popUpContent.innerHTML = showAthletesFullData(athletes);
             });
-        };
+        }
     });
     return showAthletes;
 }
@@ -86,12 +87,14 @@ const showAthletesFullData = (athletes) => {
     return content;
 };
 
-
+let teams = new Set(repeatedTeams);
+let sports = new Set(repeatedSports);
+let events = new Set(repeatedEvents)
 
 // Crear listas de opciones (teams y sports)
-const teams = [...new Set(repeatedTeams)].sort((a, b) => a > b ? 1 : -1);
-const sports = [...new Set(repeatedSports)].sort((a, b) => a > b ? 1 : -1);
-const events = [...new Set(repeatedEvents)].sort((a, b) => a > b ? 1 : -1);
+teams = [...teams].sort((a, b) => a > b ? 1 : -1);
+sports = [...sports].sort((a, b) => a > b ? 1 : -1);
+events = [...events].sort((a, b) => a > b ? 1 : -1);
 
 
 function listOfOptions(selectCategory, list) {
@@ -196,7 +199,9 @@ selectEvent.addEventListener("change", () => {
 });
 //gender selection
 //gender: female
-selectFemale.addEventListener("change", () => {
+selectFemale.addEventListener("change", selectFemaleFunction);
+
+function selectFemaleFunction() {
     const searchStringSport = selectSport.value.toLowerCase(); //
     let filteredNames = filterSport(athletesData, searchStringSport);
 
@@ -221,7 +226,7 @@ selectFemale.addEventListener("change", () => {
         resultsPage.innerHTML = "";
         showAthletes(filteredNames);
     }
-});
+};
 //gender: male
 selectMale.addEventListener("change", () => {
     const searchStringSport = selectSport.value.toLowerCase(); //
@@ -275,7 +280,7 @@ selectOrder.addEventListener("change", () => {
     } else if (selectOrder.value == "z-a") {
         resultsPage.innerHTML = "";
         showAthletes(sortByZa(athletesData));
-    };
+    }
 });
 
 
@@ -291,10 +296,26 @@ function homePage() {
 anotherChampsButton.addEventListener("click", champsPage);
 champsButton.addEventListener("click", champsPage);
 
-function champsPage() {
+//women button
+womenButton.addEventListener("click", womenPage);
+
+function womenPage() {
+    let women = filterFemale(athletesData)
+
     console.log("click");
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
+    resultsPage.innerHTML = ''
+    showAthletes(women);
+
+}
+//
+
+
+function champsPage() {
+    document.querySelector(".page-search").style.display = "block";
+    document.querySelector(".home-main").style.display = "none";
+    resultsPage.innerHTML = ''
     showAthletes(athletesData);
 }
 
@@ -303,9 +324,3 @@ statsButton.addEventListener("click", statsPage);
 function statsPage() {
     window.location.assign('./statistics.html');
 }
-
-
-
-//Statistics HTML 
-//let sumaDeMedallas =0;
-//for(let i=0; i<=athletesData.length;i++){}

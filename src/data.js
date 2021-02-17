@@ -8,9 +8,6 @@
 //
 
 
-
-
-
 // Filter
 export const filterTeam = (data, condition) => {
     return data.filter(athletes => athletes.team.toLowerCase().includes(condition));
@@ -27,20 +24,18 @@ export const filterSport = (data, condition) => {
 export const filterEvent = (data, condition) => {
     return data.filter(athletes => athletes.event.toLowerCase().includes(condition));
 };
+
 export const filterFemale = (data) => {
     return data.filter(athletes => athletes.gender.includes('F'));
 };
+
 export const filterMale = (data) => {
     return data.filter(athletes => athletes.gender.includes('M'));
 };
 
-// export const filterGender = (data) => {
-//         return data.filter(athletes => athletes.gender.includes(condition));
-//     }
-// data - peru - 
 export const filterMedalla = (data, conditionCountry, conditionMedal) => {
-let objCountry = data.filter(athletes => athletes.team.includes(conditionCountry));
-return objCountry.filter(medallas => medallas.medal.includes(conditionMedal)).length;
+    let objCountry = data.filter(athletes => athletes.team.includes(conditionCountry));
+    return objCountry.filter(medallas => medallas.medal.includes(conditionMedal)).length;
 }
 
 
@@ -53,7 +48,7 @@ export const sortByAz = (data) => data.sort((a, b) => {
         return -1;
     } else {
         return 0;
-    };
+    }
 });
 
 export const sortByZa = (data) => data.sort((a, b) => {
@@ -76,8 +71,8 @@ export const sortByTotal = (data, condition) => {
   }
 }
 
+
 //Map
- 
 
 export const mapSport = (data) => {
     return data.map(athletes => athletes.sport);
@@ -85,23 +80,9 @@ export const mapSport = (data) => {
 
 //Tabla, por cada atleta que encuentre de la data, devuelve el equipo del atleta y crea un array con todos los atletas
 export const mapTeam = (data) => {
-  return data.map(athletes => athletes.team);
+    return data.map(athletes => athletes.team);
 };
-
-
-
-/*export const sortByName = (data, sortData) => {
-  const sortResult = data.sort((a,b) => (a.name > b.name ? 1 : -1));
-  if (sortData == "A-Z") {
-    return sortResult;
-  } else {
-    return sortResult.reverse();
-  }
-};*/
-
 
 export const mapEvent = (data) => {
     return data.map(athletes => athletes.event);
 };
-
-
