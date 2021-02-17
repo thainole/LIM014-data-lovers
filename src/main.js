@@ -298,7 +298,7 @@ womenButton.addEventListener("click", womenPage);
 function womenPage() {
     let women = filterFemale(athletesData)
 
-    console.log("click");
+    // console.log("click");
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
     resultsPage.innerHTML = ''
@@ -320,5 +320,3 @@ statsButton.addEventListener("click", statsPage);
 function statsPage() {
     window.location.assign('./statistics.html');
 }
-
-
