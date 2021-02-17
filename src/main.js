@@ -1,5 +1,5 @@
 import { sortByAz, sortByZa, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, filterFemale, filterMale } from './data.js';
-import data from './data/athletes/athletes.js'; 
+import data from './data/athletes/athletes.js';
 
 
 // Declarando variables
@@ -12,6 +12,7 @@ const homeButton = document.getElementById("home-button");
 const statsButton = document.getElementById("stats-button");
 const champsButton = document.getElementById("champs-button");
 const anotherChampsButton = document.getElementById("another-champs-button");
+const womenButton = document.getElementById("womenButton");
 
 const repeatedTeams = mapTeam(athletesData);
 const repeatedSports = mapSport(athletesData);
@@ -33,7 +34,7 @@ const showAthletes = (data) => {
     let counter = 0;
     data.forEach((athletes) => {
         counter++;
-        if (counter <= 100) {
+        if (counter <= 48) {
             const div = document.createElement("div");
             div.classList.add("card");
             div.innerHTML = `
@@ -291,9 +292,26 @@ function homePage() {
 anotherChampsButton.addEventListener("click", champsPage);
 champsButton.addEventListener("click", champsPage);
 
+//women button
+womenButton.addEventListener("click", womenPage);
+
+function womenPage() {
+    let women = filterFemale(athletesData)
+
+    console.log("click");
+    document.querySelector(".page-search").style.display = "block";
+    document.querySelector(".home-main").style.display = "none";
+    resultsPage.innerHTML = ''
+    showAthletes(women);
+
+}
+//
+
+
 function champsPage() {
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
+    resultsPage.innerHTML = ''
     showAthletes(athletesData);
 }
 

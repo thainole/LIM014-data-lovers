@@ -58,17 +58,26 @@ export const sortByZa = (data) => data.sort((a, b) => {
     } 
 });
 
+//Orden de tabla de manera descendente
+export const sortByTotal = (data, condition) => {
+ if (condition === 'asc') {
+    return data.sort((a, b) => a.total - b.total);
+  }
+  else {
+    return data.sort((a, b) => b.total - a.total);
+  }
+}
 
 
 //Map
- 
+
 export const mapSport = (data) => {
     return data.map(athletes => athletes.sport);
 };
 
 //Tabla, por cada atleta que encuentre de la data, devuelve el equipo del atleta y crea un array con todos los atletas
 export const mapTeam = (data) => {
-  return data.map(athletes => athletes.team);
+    return data.map(athletes => athletes.team);
 };
 
 export const mapEvent = (data) => {
