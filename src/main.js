@@ -1,13 +1,15 @@
-import { sortByAz, sortByZa, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, filterFemale, filterMale } from './data.js';
+import { sortByAz, sortByZa, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, filterFemale, filterMale, filterMedalla, sortByTotal} from './data.js';
 import data from './data/athletes/athletes.js';
 
 
 // Declarando variables
 const athletesData = data.athletes;
+
 const resultsPage = document.querySelector(".page-search__main__results-area__grid");
 const popUp = document.querySelector(".page-search__pop-up-wrapper");
 const popUpContent = document.querySelector(".page-search__pop-up-content");
 const popUpClose = document.querySelector(".page-search__pop-up-close");
+
 const homeButton = document.getElementById("home-button");
 const statsButton = document.getElementById("stats-button");
 const champsButton = document.getElementById("champs-button");
@@ -26,6 +28,9 @@ const selectMale = document.getElementById("check-male");
 
 const searchBar = document.querySelector("#search-bar");
 const selectOrder = document.querySelector(".select--order");
+
+const medalsTeam =  mapTeam(athletesData);
+const unitedTeam = [];
 
 
 
@@ -280,20 +285,63 @@ selectOrder.addEventListener("change", () => {
 });
 
 
+// Tabla de medallas
+
+medalsTeam.map(team => {
+    if (unitedTeam.includes(team) === false){
+        unitedTeam.push(team);
+    }
+    
+})
+
+//El forEach llena el objeto vacío que es object medals y se crean los keywords
+let objMedals = []; 
+console.log(unitedTeam);
+unitedTeam.forEach((team) => { 
+    let medallasOro = filterMedalla(athletesData, team,"Gold")
+    let medallasSilver = filterMedalla(athletesData,team,"Silver")
+    let medallasBronze = filterMedalla(athletesData,team,"Bronze")
+    let total = medallasOro + medallasSilver + medallasBronze; 
+
+    objMedals.push({country: team, 
+                golden: medallasOro, 
+                silver: medallasSilver, 
+                bronze: medallasBronze, 
+                total: total}
+                )
+});
+
+/*El forEach pinta la tabla con los objetos ya creados*/
+let objMedalsOrdered = sortByTotal(objMedals, 'dsc');
+
+objMedalsOrdered.forEach((obj) => { 
+    const container = document.createElement('tr');  
+    const table = document.getElementById("bodytable");
+    table.appendChild(container).innerHTML =
+     `<tr> 
+      <td> <strong>${obj.country}</strong> 
+      </td><td>${obj.golden}</td>
+      </td><td>${obj.silver}</td>
+      </td><td>${obj.bronze}</td>
+      </td><td>${obj.total}</td>
+      </tr>` 
+      
+});
 
 // Funcionalidad de la barra de navegación
 homeButton.addEventListener("click", homePage);
+anotherChampsButton.addEventListener("click", champsPage);
+champsButton.addEventListener("click", champsPage);
+womenButton.addEventListener("click", womenPage);
+statsButton.addEventListener("click", statsPage);
+
 
 function homePage() {
     document.querySelector(".home-main").style.display = "block";
     document.querySelector(".page-search").style.display = "none";
+    document.querySelector(".stats-page").style.display = "none";
 }
 
-anotherChampsButton.addEventListener("click", champsPage);
-champsButton.addEventListener("click", champsPage);
-
-//women button
-womenButton.addEventListener("click", womenPage);
 
 function womenPage() {
     let women = filterFemale(athletesData)
@@ -301,24 +349,26 @@ function womenPage() {
     console.log("click");
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
+    document.querySelector(".stats-page").style.display = "none";
     resultsPage.innerHTML = ''
     showAthletes(women);
 
 }
-//
 
 
 function champsPage() {
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
+    document.querySelector(".stats-page").style.display = "none";
     resultsPage.innerHTML = ''
     showAthletes(athletesData);
 }
 
-statsButton.addEventListener("click", statsPage);
 
 function statsPage() {
-    window.location.assign('./statistics.html');
+    document.querySelector(".stats-page").style.display = "block";
+    document.querySelector(".page-search").style.display = "none";
+    document.querySelector(".home-main").style.display = "none";
 }
 
 
