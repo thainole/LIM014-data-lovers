@@ -42,21 +42,14 @@ return objCountry.filter(medallas => medallas.medal.includes(conditionMedal)).le
 
 
 //Sort 
-export const sortByAz = (data) => data.sort((a, b) => {
-    if (a.name > b.name) {
-        return 1;
-    } else if (a.name < b.name) {
-        return -1;
-    } 
-});
+export const sortByName = (data, condition)  => {
+    if (condition === 'a-z') {
+       return data.sort((a, b) => a.name > b.name);
+    } else if (condition === 'z-a') {
+       return data.sort((a, b) => b.name > a.name);
+    }
+}
 
-export const sortByZa = (data) => data.sort((a, b) => {
-    if (a.name < b.name) {
-        return 1;
-    } else if (a.name > b.name) {
-        return -1;
-    } 
-});
 
 //Orden de tabla de manera descendente
 export const sortByTotal = (data, condition) => {

@@ -1,20 +1,20 @@
-import {filterTeam, filterSport, sortByAz, sortByZa, filterEvent, filterName, filterMale, filterFemale, mapSport, mapTeam, mapEvent, filterMedalla} from '../src/data.js';
+import {sortByName, sortByTotal, filterTeam, filterSport, filterEvent, filterName, filterMale, filterFemale, filterMedalla, mapSport, mapTeam, mapEvent} from '../src/data.js';
 
 
-describe('Sort by Az', () => {
+describe('Sort by name asc', () => {
   it('is a function', () => {
-    expect(typeof sortByAz).toBe('function');
+    expect(typeof sortByName).toBe('function');
   });
 
   it('returns sorted data', () => {
     const data = [{
-      name: 'A',
+      name: 'D',
     },
     {
       name: 'Z',
     },
     {
-      name: 'D',
+      name: 'A',
     }];
 
     const resultado = [{
@@ -26,7 +26,7 @@ describe('Sort by Az', () => {
     {
       name: 'Z',
     }];
-    expect(sortByAz(data)).toEqual(resultado);
+    expect(sortByName(data, 'a-z')).toEqual(resultado);
   });
 });
 
@@ -34,20 +34,20 @@ describe('Sort by Az', () => {
 
 
 
-describe('Sort by Za', () => {
+describe('Sort by name desc', () => {
   it('is a function', () => {
-    expect(typeof sortByZa).toBe('function');
+    expect(typeof sortByName).toBe('function');
   });
 
   it('returns sorted reversed data', () => {
     const data = [{
-      name: 'A',
+      name: 'D',
     },
     {
       name: 'Z',
     },
     {
-      name: 'D',
+      name: 'A',
     }];
 
     const resultado = [{
@@ -59,7 +59,73 @@ describe('Sort by Za', () => {
     {
       name: 'A',
     }];
-    expect(sortByZa(data)).toEqual(resultado);
+    expect(sortByName(data, 'z-a')).toEqual(resultado);
+  });
+});
+
+
+
+
+
+describe('Sort by total asc', () => {
+  it('is a function', () => {
+    expect(typeof sortByTotal).toBe('function');
+  });
+
+  it('returns sorted data', () => {
+    const data = [{
+      total: 4,
+    },
+    {
+      total: 9,
+    },
+    {
+      total: 1,
+    }];
+
+    const resultado = [{
+      total: 1,
+    },
+    {
+      total: 4,
+    },
+    {
+      total: 9,
+    }];
+    expect(sortByTotal(data, 'asc')).toEqual(resultado);
+  });
+});
+
+
+
+
+
+describe('Sort by total dsc', () => {
+  it('is a function', () => {
+    expect(typeof sortByTotal).toBe('function');
+  });
+
+  it('returns sorted data', () => {
+    const data = [{
+      total: 4,
+    },
+    {
+      total: 9,
+    },
+    {
+      total: 1,
+    }];
+
+    const resultado = [{
+      total: 9,
+    },
+    {
+      total: 4,
+    },
+    {
+      total: 1,
+    }];
+    expect(sortByTotal(data, 'dsc')).toEqual(resultado);
   });
 });
 
@@ -289,12 +355,12 @@ describe('Make a new array of every event', () => {
 
 
 
-describe('Make a new array of every team', () => {
+describe('Gets the total of medals of the country selected', () => {
   it('is a function', () => {
     expect(typeof filterMedalla).toBe('function');
   });
 
-  it('returns an array of every team', () => {
+  it('returns a number of medals', () => {
     const data = [{
       name: 'Gabriel',
       team: 'Brasil',

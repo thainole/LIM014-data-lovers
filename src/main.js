@@ -1,4 +1,4 @@
-import { sortByAz, sortByZa, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, filterFemale, filterMale, filterMedalla, sortByTotal} from './data.js';
+import { sortByName, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, filterFemale, filterMale, filterMedalla, sortByTotal} from './data.js';
 import data from './data/athletes/athletes.js';
 
 
@@ -275,18 +275,13 @@ searchBar.addEventListener("input", () => {
 
 // Ordenar por nombre
 selectOrder.addEventListener("change", () => {
-    if (selectOrder.value == "a-z") {
-        resultsPage.innerHTML = "";
-        showAthletes(sortByAz(athletesData));
-    } else if (selectOrder.value == "z-a") {
-        resultsPage.innerHTML = "";
-        showAthletes(sortByZa(athletesData));
-    }
+    let condition = selectOrder.value;
+    return showAthletes(sortByName(athletesData, condition));
 });
 
 
-// Tabla de medallas
 
+// Tabla de medallas
 medalsTeam.map(team => {
     if (unitedTeam.includes(team) === false){
         unitedTeam.push(team);
