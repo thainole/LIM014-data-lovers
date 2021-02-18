@@ -1,28 +1,12 @@
-//suggestion
-
-//filterResults function (triggered by all selection elements)
-
-// if team != All then ... filterTeam()
-// if sport != All then ... take data from previus step (already filtered for team) and pass to filterSport()
-// ... event ..
-//
-
 
 // Filter
-export const filterTeam = (data, condition) => {
-    return data.filter(athletes => athletes.team.includes(condition));
+/*el key sería team, sport, y event */
+export const filterByKey = (data, condition, key) => {
+    return data.filter(athletes => athletes[key].includes(condition));
 };
 
-export const filterName = (data, condition) => {
+export const filterByName = (data, condition) => {
     return data.filter(athletes => athletes.name.toLowerCase().includes(condition));
-};
-
-export const filterSport = (data, condition) => {
-    return data.filter(athletes => athletes.sport.includes(condition));
-};
-
-export const filterEvent = (data, condition) => {
-    return data.filter(athletes => athletes.event.includes(condition));
 };
 
 export const filterFemale = (data) => {
@@ -31,7 +15,7 @@ export const filterFemale = (data) => {
 
 export const filterMale = (data) => {
     return data.filter(athletes => athletes.gender.includes('M'));
-};
+}; 
 
 export const filterMedalla = (data, conditionCountry, conditionMedal) => {
 let objCountry = data.filter(athletes => athletes.team.includes(conditionCountry));
@@ -47,11 +31,13 @@ export const sortByName = (data, condition)  => {
        return data.sort((a, b) => a.name > b.name);
     } else if (condition === 'z-a') {
        return data.sort((a, b) => b.name > a.name);
+    } else {
+        return data
     }
 }
 
 
-//Orden de tabla de manera descendente
+//Orden de tabla de manera descendente (números, por eso no se usa la funció de arriba)
 export const sortByTotal = (data, condition) => {
  if (condition === 'asc') {
     return data.sort((a, b) => a.total - b.total);
@@ -63,16 +49,9 @@ export const sortByTotal = (data, condition) => {
 
 
 //Map
-
-export const mapSport = (data) => {
-    return data.map(athletes => athletes.sport);
-};
-
-//Tabla, por cada atleta que encuentre de la data, devuelve el equipo del atleta y crea un array con todos los atletas
-export const mapTeam = (data) => {
-    return data.map(athletes => athletes.team);
-};
-
-export const mapEvent = (data) => {
-    return data.map(athletes => athletes.event);
-};
+/*Igual que el filter, se usa el key para sport, team y event*/
+export const mapByKey = (data, key) => {
+    return data
+    .map(athletes => athletes[key])
+    .sort((a, b) => a > b ? 1 : -1);
+}

@@ -1,4 +1,4 @@
-import { sortByName, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, filterFemale, filterMale, filterMedalla, sortByTotal} from './data.js';
+import {filterByKey, filterByName, filterFemale, filterMale, filterMedalla, mapByKey, sortByName, sortByTotal} from './data.js';
 import data from './data/athletes/athletes.js';
 
 
@@ -16,9 +16,12 @@ const champsButton = document.getElementById("champs-button");
 const anotherChampsButton = document.getElementById("another-champs-button");
 const womenButton = document.getElementById("womenButton");
 
-const repeatedTeams = mapTeam(athletesData);
-const repeatedSports = mapSport(athletesData);
-const repeatedEvents = mapEvent(athletesData);
+const repeatedTeams = mapByKey(athletesData, "team");
+const repeatedSports = mapByKey(athletesData, "sport");
+const repeatedEvents = mapByKey(athletesData, "event");
+let teams = new Set(repeatedTeams);
+let sports = new Set(repeatedSports);
+let events = new Set(repeatedEvents);
 
 const selectTeam = document.getElementById("select-team");
 const selectSport = document.getElementById("select-sport");
@@ -29,13 +32,13 @@ const selectMale = document.getElementById("check-male");
 const searchBar = document.querySelector("#search-bar");
 const selectOrder = document.querySelector(".select--order");
 
-const medalsTeam =  mapTeam(athletesData);
-const unitedTeam = [];
+
 
 
 
 // Mostrar atletas en las tarjetas y pop up
 const showAthletes = (data) => {
+    resultsPage.innerHTML=''
     let counter = 0;
     data.forEach((athletes) => {
         counter++;
@@ -50,6 +53,7 @@ const showAthletes = (data) => {
                 <li>Gender: ${athletes.gender}</li>
                 <li>Team: ${athletes.team}</li>
                 <li>Sport: ${athletes.sport}</li>
+                <li>Event: ${athletes.event}</li>
             </ul>
             <div class="card__read-more flex-center">
                 <button>Read more</button>
@@ -92,177 +96,14 @@ const showAthletesFullData = (athletes) => {
     return content;
 };
 
-let teams = new Set(repeatedTeams);
-let sports = new Set(repeatedSports);
-let events = new Set(repeatedEvents)
-
-// Crear listas de opciones (teams y sports)
-teams = [...teams].sort((a, b) => a > b ? 1 : -1);
-sports = [...sports].sort((a, b) => a > b ? 1 : -1);
-events = [...events].sort((a, b) => a > b ? 1 : -1);
 
 
-function listOfOptions(selectCategory, list) {
-    for (let i = 0; i < list.length; i++) {
-        let option = document.createElement("option"),
-            txt = document.createTextNode(list[i]);
-        option.appendChild(txt);
-        selectCategory.insertBefore(option, selectCategory.lastChild);
-    }
-}
-
-listOfOptions(selectTeam, teams);
-listOfOptions(selectSport, sports);
-listOfOptions(selectEvent, events);
-
-
-
-// Team (country) selection
-selectTeam.addEventListener("change", () => {
-    const searchStringSport = selectSport.value; //
-    let filteredNames = filterSport(athletesData, searchStringSport);
-
-    const searchStringTeam = selectTeam.value; //
-    filteredNames = filterTeam(filteredNames, searchStringTeam);
-
-    const searchStringEvent = selectEvent.value; //
-    filteredNames = filterEvent(filteredNames, searchStringEvent);
-
-
-    if (selectFemale.checked && !selectMale.checked) {
-        filteredNames = filterFemale(filteredNames);
-    }
-
-    if (selectMale.checked && !selectFemale.checked) {
-        filteredNames = filterMale(filteredNames);
-    }
-
-
-    if (filteredNames.length == 0) {
-        resultsPage.textContent = "No matches found. Try with another name";
-    } else {
-        resultsPage.innerHTML = "";
-        showAthletes(filteredNames);
-    }
-});
-
-//Sport selection
-selectSport.addEventListener("change", () => {
-
-    const searchStringSport = selectSport.value; //
-    let filteredNames = filterSport(athletesData, searchStringSport);
-
-    const searchStringTeam = selectTeam.value; //
-    filteredNames = filterTeam(filteredNames, searchStringTeam);
-
-    const searchStringEvent = selectEvent.value; //
-    filteredNames = filterEvent(filteredNames, searchStringEvent);
-
-    if (selectFemale.checked && !selectMale.checked) {
-        filteredNames = filterFemale(filteredNames);
-    }
-
-    if (selectMale.checked && !selectFemale.checked) {
-        filteredNames = filterMale(filteredNames);
-    }
-
-
-    if (filteredNames.length == 0) {
-        resultsPage.textContent = "No matches found. Try with another name";
-    } else {
-        resultsPage.innerHTML = "";
-        showAthletes(filteredNames);
-    }
-});
-
-//selectEvent
-selectEvent.addEventListener("change", () => {
-    const searchStringSport = selectSport.value; //
-    let filteredNames = filterSport(athletesData, searchStringSport);
-
-    const searchStringTeam = selectTeam.value; //
-    filteredNames = filterTeam(filteredNames, searchStringTeam);
-
-    const searchStringEvent = selectEvent.value; //
-    filteredNames = filterEvent(filteredNames, searchStringEvent);
-
-    if (selectFemale.checked && !selectMale.checked) {
-        filteredNames = filterFemale(filteredNames);
-    }
-
-    if (selectMale.checked && !selectFemale.checked) {
-        filteredNames = filterMale(filteredNames);
-    }
-
-
-    if (filteredNames.length == 0) {
-        resultsPage.textContent = "No matches found. Try with another name";
-    } else {
-        resultsPage.innerHTML = "";
-        showAthletes(filteredNames);
-    }
-});
-//gender selection
-//gender: female
-selectFemale.addEventListener("change", () => {
-    const searchStringSport = selectSport.value; //
-    let filteredNames = filterSport(athletesData, searchStringSport);
-
-    const searchStringTeam = selectTeam.value; //
-    filteredNames = filterTeam(filteredNames, searchStringTeam);
-
-    const searchStringEvent = selectEvent.value; //
-    filteredNames = filterEvent(filteredNames, searchStringEvent);
-
-    if (selectFemale.checked && !selectMale.checked) {
-        filteredNames = filterFemale(filteredNames);
-    }
-
-    if (selectMale.checked && !selectFemale.checked) {
-        filteredNames = filterMale(filteredNames);
-    }
-
-
-    if (filteredNames.length == 0) {
-        resultsPage.textContent = "No matches found. Try with another name";
-    } else {
-        resultsPage.innerHTML = "";
-        showAthletes(filteredNames);
-    }
-});
-//gender: male
-selectMale.addEventListener("change", () => {
-    const searchStringSport = selectSport.value; //
-    let filteredNames = filterSport(athletesData, searchStringSport);
-
-    const searchStringTeam = selectTeam.value; //
-    filteredNames = filterTeam(filteredNames, searchStringTeam);
-
-    const searchStringEvent = selectEvent.value; //
-    filteredNames = filterEvent(filteredNames, searchStringEvent);
-
-    if (selectFemale.checked && !selectMale.checked) {
-        filteredNames = filterFemale(filteredNames);
-    }
-
-    if (selectMale.checked && !selectFemale.checked) {
-        filteredNames = filterMale(filteredNames);
-    }
-
-
-    if (filteredNames.length == 0) {
-        resultsPage.textContent = "No matches found. Try with another name";
-    } else {
-        resultsPage.innerHTML = "";
-        showAthletes(filteredNames);
-    }
-});
 
 
 // Barra de búsqueda
 searchBar.addEventListener("input", () => {
     const searchString = searchBar.value.toLowerCase(); //
-    const filteredNames = filterName(athletesData, searchString);
+    const filteredNames = filterByName(athletesData, searchString);
     if (filteredNames.length == 0) {
         resultsPage.textContent = "No matches found. Try with another name";
     } else {
@@ -281,17 +122,60 @@ selectOrder.addEventListener("change", () => {
 
 
 
-// Tabla de medallas
-medalsTeam.map(team => {
-    if (unitedTeam.includes(team) === false){
-        unitedTeam.push(team);
-    }
-    
-})
 
-//El forEach llena el objeto vacío que es object medals y se crean los keywords
+// Crear listas de opciones (teams y sports)
+teams = [...teams];
+sports = [...sports];
+events = [...events];
+
+function listOfOptions(selectCategory, list) {
+    for (let i = 0; i < list.length; i++) {
+        let option = document.createElement("option"),
+            txt = document.createTextNode(list[i]);
+        option.appendChild(txt);
+        selectCategory.insertBefore(option, selectCategory.lastChild);
+    }
+}
+
+listOfOptions(selectTeam, teams);
+listOfOptions(selectSport, sports);
+listOfOptions(selectEvent, events);
+
+
+
+
+function includingAllFilters () {
+    const sportOption = selectSport.value;
+    const teamOption = selectTeam.value;
+    const eventOption = selectEvent.value;
+
+    const filteredSports = filterByKey(athletesData, sportOption, 'sport');
+    const filteredTeams = filterByKey(filteredSports, teamOption, 'team');
+    let filteredData = filterByKey(filteredTeams, eventOption, 'event');
+
+    if (selectMale.checked && !selectFemale.checked) {
+        filteredData = filterMale(filteredData);
+    }
+    if (selectFemale.checked && !selectMale.checked) {
+        filteredData = filterFemale(filteredData);
+    }
+
+    showAthletes(filteredData);
+};
+
+// Filter selection
+selectTeam.addEventListener("change", includingAllFilters)
+selectSport.addEventListener("change", includingAllFilters);
+selectEvent.addEventListener("change", includingAllFilters);
+selectFemale.addEventListener("change", includingAllFilters);
+selectMale.addEventListener("change", includingAllFilters);
+
+
+
+// Medallas
+/*El forEach llena el objeto vacío que es object medals y se crean los keywords*/
 let objMedals = []; 
-unitedTeam.forEach((team) => { 
+teams.forEach((team) => { 
     let medallasOro = filterMedalla(athletesData, team,"Gold")
     let medallasSilver = filterMedalla(athletesData,team,"Silver")
     let medallasBronze = filterMedalla(athletesData,team,"Bronze")
@@ -322,6 +206,10 @@ objMedalsOrdered.forEach((obj) => {
       
 });
 
+
+
+
+
 // Funcionalidad de la barra de navegación
 homeButton.addEventListener("click", homePage);
 anotherChampsButton.addEventListener("click", champsPage);
@@ -336,7 +224,6 @@ function homePage() {
     document.querySelector(".stats-page").style.display = "none";
 }
 
-
 function womenPage() {
     let women = filterFemale(athletesData)
 
@@ -348,7 +235,6 @@ function womenPage() {
 
 }
 
-
 function champsPage() {
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
@@ -356,7 +242,6 @@ function champsPage() {
     resultsPage.innerHTML = ''
     showAthletes(athletesData);
 }
-
 
 function statsPage() {
     document.querySelector(".stats-page").style.display = "block";
