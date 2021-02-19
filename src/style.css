@@ -215,7 +215,7 @@ header {
 
 /* PAGE -- Search */
 
-.page-search {
+.page-search, .stats-page {
     display: none;
 }
 
