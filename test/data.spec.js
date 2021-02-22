@@ -1,4 +1,4 @@
-import {sortByName, sortByTotal, filterTeam, filterSport, filterEvent, filterName, filterMale, filterFemale, filterMedalla, mapSport, mapTeam, mapEvent} from '../src/data.js';
+import {sortByName, sortByTotal, filterByName, filterMale, filterFemale, filterMedal, mapByKey, filterByKey} from '../src/data.js';
 
 
 describe('Sort by name asc', () => {
@@ -7,26 +7,28 @@ describe('Sort by name asc', () => {
   });
 
   it('returns sorted data', () => {
-    const data = [{
-      name: 'D',
+    const data = [
+    {
+      name: 'Claudia',
     },
     {
-      name: 'Z',
+      name: 'Zoe',
     },
     {
-      name: 'A',
+      name: 'Taylor',
     }];
 
-    const resultado = [{
-      name: 'A',
+    const result = [
+    {
+      name: 'Claudia',
     },
     {
-      name: 'D',
+      name: 'Taylor',
     },
     {
-      name: 'Z',
+      name: 'Zoe',
     }];
-    expect(sortByName(data, 'a-z')).toEqual(resultado);
+    expect(sortByName(data, 'a-z')).toEqual(result);
   });
 });
 
@@ -40,26 +42,28 @@ describe('Sort by name desc', () => {
   });
 
   it('returns sorted reversed data', () => {
-    const data = [{
-      name: 'D',
+    const data = [
+    {
+      name: 'Claudia',
     },
     {
-      name: 'Z',
+      name: 'Zoe',
     },
     {
-      name: 'A',
+      name: 'Taylor',
     }];
 
-    const resultado = [{
-      name: 'Z',
+    const result = [
+    {
+      name: 'Zoe',
     },
     {
-      name: 'D',
+      name: 'Taylor',
     },
     {
-      name: 'A',
+      name: 'Claudia',
     }];
-    expect(sortByName(data, 'z-a')).toEqual(resultado);
+    expect(sortByName(data, 'z-a')).toEqual(result);
   });
 });
 
@@ -83,7 +87,7 @@ describe('Sort by total asc', () => {
       total: 1,
     }];
 
-    const resultado = [{
+    const result = [{
       total: 1,
     },
     {
@@ -92,7 +96,7 @@ describe('Sort by total asc', () => {
     {
       total: 9,
     }];
-    expect(sortByTotal(data, 'asc')).toEqual(resultado);
+    expect(sortByTotal(data, 'asc')).toEqual(result);
   });
 });
 
@@ -116,7 +120,7 @@ describe('Sort by total dsc', () => {
       total: 1,
     }];
 
-    const resultado = [{
+    const result = [{
       total: 9,
     },
     {
@@ -125,7 +129,7 @@ describe('Sort by total dsc', () => {
     {
       total: 1,
     }];
-    expect(sortByTotal(data, 'dsc')).toEqual(resultado);
+    expect(sortByTotal(data, 'dsc')).toEqual(result);
   });
 });
 
@@ -135,7 +139,7 @@ describe('Sort by total dsc', () => {
 
 describe('Filter by team', () => {
   it('is a function', () => {
-    expect(typeof filterTeam).toBe('function');
+    expect(typeof filterByKey).toBe('function');
   });
 
   it('returns filtered data by team', () => {
@@ -147,11 +151,11 @@ describe('Filter by team', () => {
       name: 'Cristina',
       team: 'Colombia'
     }];
-    const resultado = [{
+    const result = [{
       name: 'Cristina',
       team: 'Colombia'
     }];
-    expect(filterTeam(data, 'Colombia')).toEqual(resultado);
+    expect(filterByKey(data, 'Colombia', 'team')).toEqual(result);
   });
 });
 
@@ -161,7 +165,7 @@ describe('Filter by team', () => {
 
 describe('Filter by sport', () => {
   it('is a function', () => {
-    expect(typeof filterSport).toBe('function');
+    expect(typeof filterByKey).toBe('function');
   });
 
   it('returns filtered data by sport', () => {
@@ -173,11 +177,11 @@ describe('Filter by sport', () => {
       name: 'Cristina',
       sport: 'Taekwondo'
     }];
-    const resultado = [{
+    const result = [{
       name: 'Cristina',
       sport: 'Taekwondo'
     }];
-    expect(filterSport(data, 'Taekwondo')).toEqual(resultado);
+    expect(filterByKey(data, 'Taekwondo', 'sport')).toEqual(result);
   });
 });
 
@@ -187,7 +191,7 @@ describe('Filter by sport', () => {
 
 describe('Filter by event', () => {
   it('is a function', () => {
-    expect(typeof filterEvent).toBe('function');
+    expect(typeof filterByKey).toBe('function');
   });
 
   it('returns filtered data by event', () => {
@@ -199,11 +203,11 @@ describe('Filter by event', () => {
       name: 'Cristina',
       event: "Taekwondo Women's Heavyweight"
     }];
-    const resultado = [{
+    const result = [{
       name: 'Gabriel',
       event: "Water Polo Men's Water Polo"
     }];
-    expect(filterEvent(data, "Water Polo Men's Water Polo")).toEqual(resultado);
+    expect(filterByKey(data, "Water Polo Men's Water Polo", 'event')).toEqual(result);
   });
 });
 
@@ -213,7 +217,7 @@ describe('Filter by event', () => {
 
 describe('Filter by name', () => {
   it('is a function', () => {
-    expect(typeof filterName).toBe('function');
+    expect(typeof filterByName).toBe('function');
   });
 
   it('returns filtered data by name', () => {
@@ -223,10 +227,10 @@ describe('Filter by name', () => {
     {
       name: 'artemi gavezou castro'
     }];
-    const resultado = [{
+    const result = [{
       name: 'artemi gavezou castro'
     }];
-    expect(filterName(data, 'artemi gavezou castro')).toEqual(resultado);
+    expect(filterByName(data, 'artemi gavezou castro')).toEqual(result);
   });
 });
 
@@ -248,11 +252,11 @@ describe('Filter by male gender', () => {
       name: 'Cristina',
       gender: 'F'
     }];
-    const resultado = [{
+    const result = [{
       name: 'Gabriel',
       gender: 'M'
     }];
-    expect(filterMale(data, 'M')).toEqual(resultado);
+    expect(filterMale(data, 'M')).toEqual(result);
   });
 });
 
@@ -274,11 +278,11 @@ describe('Filter by female gender', () => {
       name: 'Cristina',
       gender: 'F'
     }];
-    const resultado = [{
+    const result = [{
       name: 'Cristina',
       gender: 'F'
     }];
-    expect(filterFemale(data, 'F')).toEqual(resultado);
+    expect(filterFemale(data, 'F')).toEqual(result);
   });
 });
 
@@ -288,7 +292,7 @@ describe('Filter by female gender', () => {
 
 describe('Make a new array of every sport', () => {
   it('is a function', () => {
-    expect(typeof mapSport).toBe('function');
+    expect(typeof mapByKey).toBe('function');
   });
 
   it('returns an array of every sport', () => {
@@ -300,8 +304,8 @@ describe('Make a new array of every sport', () => {
       name: 'Cristina',
       sport: 'Taekwondo'
     }];
-    const resultado = ['Rowing', 'Taekwondo'];
-    expect(mapSport(data)).toEqual(resultado);
+    const result = ['Rowing', 'Taekwondo'];
+    expect(mapByKey(data, 'sport')).toEqual(result);
   });
 });
 
@@ -311,7 +315,7 @@ describe('Make a new array of every sport', () => {
 
 describe('Make a new array of every team', () => {
   it('is a function', () => {
-    expect(typeof mapTeam).toBe('function');
+    expect(typeof mapByKey).toBe('function');
   });
 
   it('returns an array of every team', () => {
@@ -323,8 +327,8 @@ describe('Make a new array of every team', () => {
       name: 'Cristina',
       team: 'Colombia'
     }];
-    const resultado = ['Brasil', 'Colombia'];
-    expect(mapTeam(data)).toEqual(resultado);
+    const result = ['Brasil', 'Colombia'];
+    expect(mapByKey(data, 'team')).toEqual(result);
   });
 });
 
@@ -334,7 +338,7 @@ describe('Make a new array of every team', () => {
 
 describe('Make a new array of every event', () => {
   it('is a function', () => {
-    expect(typeof mapEvent).toBe('function');
+    expect(typeof mapByKey).toBe('function');
   });
 
   it('returns an array of every event', () => {
@@ -346,8 +350,8 @@ describe('Make a new array of every event', () => {
       name: 'Cristina',
       event: "Taekwondo Women's Heavyweight"
     }];
-    const resultado = ["Water Polo Men's Water Polo", "Taekwondo Women's Heavyweight"];
-    expect(mapEvent(data)).toEqual(resultado);
+    const result = ["Taekwondo Women's Heavyweight", "Water Polo Men's Water Polo"];
+    expect(mapByKey(data, 'event')).toEqual(result);
   });
 });
 
@@ -357,7 +361,7 @@ describe('Make a new array of every event', () => {
 
 describe('Gets the total of medals of the country selected', () => {
   it('is a function', () => {
-    expect(typeof filterMedalla).toBe('function');
+    expect(typeof filterMedal).toBe('function');
   });
 
   it('returns a number of medals', () => {
@@ -376,7 +380,7 @@ describe('Gets the total of medals of the country selected', () => {
       team: 'France',
       medal: 'Silver'
     }];
-    const resultado = 1;
-    expect(filterMedalla(data, 'Brasil', 'Gold')).toEqual(resultado);
+    const result = 1;
+    expect(filterMedal(data, 'Brasil', 'Gold')).toEqual(result);
   });
 });

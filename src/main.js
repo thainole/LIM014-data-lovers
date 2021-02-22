@@ -1,4 +1,4 @@
-import {filterByKey, filterByName, filterFemale, filterMale, filterMedalla, mapByKey, sortByName, sortByTotal} from './data.js';
+import {filterByKey, filterByName, filterFemale, filterMale, filterMedal, mapByKey, sortByName, sortByTotal} from './data.js';
 import data from './data/athletes/athletes.js';
 
 
@@ -161,7 +161,7 @@ function includingAllFilters () {
     }
 
     showAthletes(filteredData);
-};
+}
 
 // Filter selection
 selectTeam.addEventListener("change", includingAllFilters)
@@ -174,25 +174,25 @@ selectMale.addEventListener("change", includingAllFilters);
 
 // Medallas
 /*El forEach llena el objeto vacío que es object medals y se crean los keywords*/
-let objMedals = []; 
+let medals = []; 
 teams.forEach((team) => { 
-    let medallasOro = filterMedalla(athletesData, team,"Gold")
-    let medallasSilver = filterMedalla(athletesData,team,"Silver")
-    let medallasBronze = filterMedalla(athletesData,team,"Bronze")
-    let total = medallasOro + medallasSilver + medallasBronze; 
+    let goldenMedals = filterMedal(athletesData, team, "Gold")
+    let silverMedals = filterMedal(athletesData, team, "Silver")
+    let bronzeMedals = filterMedal(athletesData, team, "Bronze")
+    let total = goldenMedals + silverMedals + bronzeMedals; 
 
-    objMedals.push({country: team, 
-                golden: medallasOro, 
-                silver: medallasSilver, 
-                bronze: medallasBronze, 
+    medals.push({country: team, 
+                golden: goldenMedals, 
+                silver: silverMedals, 
+                bronze: bronzeMedals, 
                 total: total}
                 )
 });
 
 /*El forEach pinta la tabla con los objetos ya creados*/
-let objMedalsOrdered = sortByTotal(objMedals, 'dsc');
+let medalsOrdered = sortByTotal(medals, 'dsc');
 
-objMedalsOrdered.forEach((obj) => { 
+medalsOrdered.forEach((obj) => { 
     const container = document.createElement('tr');  
     const table = document.getElementById("bodytable");
     table.appendChild(container).innerHTML =
