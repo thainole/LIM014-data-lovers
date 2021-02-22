@@ -16,9 +16,9 @@ export const filterMale = (data) => {
     return data.filter(athletes => athletes.gender.includes('M'));
 };
 
-export const filterMedalla = (data, conditionCountry, conditionMedal) => {
-    let objCountry = data.filter(athletes => athletes.team.includes(conditionCountry));
-    return objCountry.filter(medallas => medallas.medal.includes(conditionMedal)).length;
+export const filterMedal = (data, conditionTeam, conditionMedal) => {
+    let objTeam = data.filter(athletes => athletes.team.includes(conditionTeam));
+    return objTeam.filter(medals => medals.medal.includes(conditionMedal)).length;
 };
 
 
@@ -28,10 +28,8 @@ export const filterMedalla = (data, conditionCountry, conditionMedal) => {
 export const sortByName = (data, condition) => {
     if (condition === 'a-z') {
         return data.sort((a, b) => a.name > b.name);
-    } else if (condition === 'z-a') {
-        return data.sort((a, b) => b.name > a.name);
     } else {
-        return data
+        return data.sort((a, b) => b.name > a.name);
     }
 }
 
