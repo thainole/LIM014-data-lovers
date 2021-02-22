@@ -160,7 +160,7 @@ function includingAllFilters() {
     }
 
     showAthletes(filteredData);
-};
+}
 
 // Filter selection
 selectTeam.addEventListener("change", includingAllFilters)
