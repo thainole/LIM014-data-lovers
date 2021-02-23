@@ -318,9 +318,12 @@ header {
     max-width: 300px;
     background: white;
     margin: 10% auto;
-    padding: 30px;
+    padding:35px;
     position: relative;
     border-radius: 40px;
+}
+.popupText{
+    padding-left: 20px; 
 }
 
 .page-search__pop-up-wrapper  {

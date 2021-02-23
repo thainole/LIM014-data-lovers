@@ -82,7 +82,7 @@ popUp.addEventListener("click", e => {
 const showAthletesFullData = (athletes) => {
     let content = `
             <div class="card__title">${athletes.name}</div>
-            <div class="card__content">
+            <div class="card__content popupText">
                 <li>Gender: ${athletes.gender}</li>
                 <li>Height: ${athletes.height}</li>
                 <li>Weight: ${athletes.weight}</li>
