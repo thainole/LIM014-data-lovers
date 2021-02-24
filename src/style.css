@@ -109,12 +109,15 @@ header {
 
 
 /* PAGE -- Home */
+
 .home-main {
     display: block;
 }
+
 .page-search {
     display: none;
 }
+
 
 /* .home-main {} */
 
@@ -215,9 +218,11 @@ header {
 
 /* PAGE -- Search */
 
-.page-search, .stats-page {
+.page-search,
+.stats-page {
     display: none;
 }
+
 
 /* 
 .page-search {} */
@@ -302,9 +307,10 @@ header {
     align-items: center;
     justify-content: center;
 }
-.card__read-more button{
+
+.card__read-more button {
     border-radius: 40px;
-    border:thin;
+    border: thin;
     padding: 8px;
     margin-top: 12px;
     background-color: #2FB14E;
@@ -326,7 +332,7 @@ header {
     padding-left: 20px; 
 }
 
-.page-search__pop-up-wrapper  {
+.page-search__pop-up-wrapper {
     background: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
@@ -336,7 +342,7 @@ header {
     display: none;
 }
 
-.page-search__pop-up-close  {
+.page-search__pop-up-close {
     position: absolute;
     top: 5px;
     right: 15px;
@@ -344,6 +350,7 @@ header {
     font-size: 1.75rem;
     color: rgb(75, 68, 68);
 }
+
 
 /* FILTERS */
 
@@ -385,7 +392,7 @@ header {
 
 .page-search__main__filter-area__filter-group input {
     border: white;
-    border-radius: 50px; 
+    border-radius: 50px;
     font-size: 20px;
     justify-self: center;
 }
@@ -441,15 +448,47 @@ p {
     line-height: 1.5;
 }
 
+
+/* table */
+
 table {
-    border-collapse: separate;
-    border-spacing: 5px;
-    background:#2FB14E url("gradient.gif") bottom left repeat-x;
-    text-align: center;
-    margin: 20px;
- }
- td, th {
+    border-collapse: inherit;
+    width: 80%;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+    table {
+        font-size: 20px;
+    }
+}
+
+td,
+th {
     background: #fff;
     color: #000;
- }
+    padding: 15px;
+    text-align: left;
+}
 
+.stats-page__tableContainer {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+}
+
+.stats-page__tableContainer__table td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: black;
+}
+
+.stats-page__tableContainer__table td:hover {
+    background-color: #ddd;
+}
+
+td:nth-child(odd) {
+    background-color: #f2f2f2;
+}

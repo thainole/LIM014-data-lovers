@@ -1,4 +1,4 @@
-import {filterByKey, filterByName, filterFemale, filterMale, filterMedal, mapByKey, sortByName, sortByTotal} from './data.js';
+import { filterByKey, filterByName, filterFemale, filterMale, filterMedal, mapByKey, sortByName, sortByTotal } from './data.js';
 import data from './data/athletes/athletes.js';
 
 
@@ -35,10 +35,9 @@ const selectOrder = document.querySelector(".select--order");
 
 
 
-
 // Mostrar atletas en las tarjetas y pop up
 const showAthletes = (data) => {
-    resultsPage.innerHTML=''
+    resultsPage.innerHTML = ''
     let counter = 0;
     data.forEach((athletes) => {
         counter++;
@@ -144,7 +143,7 @@ listOfOptions(selectEvent, events);
 
 
 
-function includingAllFilters () {
+function includingAllFilters() {
     const sportOption = selectSport.value;
     const teamOption = selectTeam.value;
     const eventOption = selectEvent.value;
@@ -174,36 +173,37 @@ selectMale.addEventListener("change", includingAllFilters);
 
 // Medallas
 /*El forEach llena el objeto vacío que es object medals y se crean los keywords*/
-let medals = []; 
-teams.forEach((team) => { 
+let medals = [];
+teams.forEach((team) => {
     let goldenMedals = filterMedal(athletesData, team, "Gold")
     let silverMedals = filterMedal(athletesData, team, "Silver")
     let bronzeMedals = filterMedal(athletesData, team, "Bronze")
-    let total = goldenMedals + silverMedals + bronzeMedals; 
+    let total = goldenMedals + silverMedals + bronzeMedals;
 
-    medals.push({country: team, 
-                golden: goldenMedals, 
-                silver: silverMedals, 
-                bronze: bronzeMedals, 
-                total: total}
-                )
+    medals.push({
+        country: team,
+        golden: goldenMedals,
+        silver: silverMedals,
+        bronze: bronzeMedals,
+        total: total
+    })
 });
 
 /*El forEach pinta la tabla con los objetos ya creados*/
 let medalsOrdered = sortByTotal(medals, 'dsc');
 
-medalsOrdered.forEach((obj) => { 
-    const container = document.createElement('tr');  
+medalsOrdered.forEach((obj) => {
+    const container = document.createElement('tr');
     const table = document.getElementById("bodytable");
     table.appendChild(container).innerHTML =
-     `<tr> 
+        `<tr> 
       <td> <strong>${obj.country}</strong> 
       </td><td>${obj.golden}</td>
       </td><td>${obj.silver}</td>
       </td><td>${obj.bronze}</td>
       </td><td>${obj.total}</td>
-      </tr>` 
-      
+      </tr>`
+
 });
 
 
@@ -248,5 +248,3 @@ function statsPage() {
     document.querySelector(".page-search").style.display = "none";
     document.querySelector(".home-main").style.display = "none";
 }
-
-

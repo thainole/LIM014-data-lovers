@@ -1,4 +1,3 @@
-
 // Filter
 /*el key sería team, sport, y event */
 export const filterByKey = (data, condition, key) => {
@@ -15,34 +14,33 @@ export const filterFemale = (data) => {
 
 export const filterMale = (data) => {
     return data.filter(athletes => athletes.gender.includes('M'));
-}; 
+};
 
 export const filterMedal = (data, conditionTeam, conditionMedal) => {
-let objTeam = data.filter(athletes => athletes.team.includes(conditionTeam));
-return objTeam.filter(medals => medals.medal.includes(conditionMedal)).length;
+    let objTeam = data.filter(athletes => athletes.team.includes(conditionTeam));
+    return objTeam.filter(medals => medals.medal.includes(conditionMedal)).length;
 };
 
 
 
 
 //Sort 
-export const sortByName = (data, condition)  => {
+export const sortByName = (data, condition) => {
     if (condition === 'a-z') {
-       return data.sort((a, b) => a.name > b.name);
+        return data.sort((a, b) => a.name > b.name);
     } else {
-       return data.sort((a, b) => b.name > a.name);
+        return data.sort((a, b) => b.name > a.name);
     }
 }
 
 
 //Orden de tabla de manera descendente (números, por eso no se usa la funció de arriba)
 export const sortByTotal = (data, condition) => {
- if (condition === 'asc') {
-    return data.sort((a, b) => a.total - b.total);
-  }
-  else {
-    return data.sort((a, b) => b.total - a.total);
-  }
+    if (condition === 'asc') {
+        return data.sort((a, b) => a.total - b.total);
+    } else {
+        return data.sort((a, b) => b.total - a.total);
+    }
 }
 
 
@@ -50,6 +48,6 @@ export const sortByTotal = (data, condition) => {
 /*Igual que el filter, se usa el key para sport, team y event*/
 export const mapByKey = (data, key) => {
     return data
-    .map(athletes => athletes[key])
-    .sort((a, b) => a > b ? 1 : -1);
+        .map(athletes => athletes[key])
+        .sort((a, b) => a > b ? 1 : -1);
 }
