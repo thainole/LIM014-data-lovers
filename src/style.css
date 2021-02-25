@@ -132,9 +132,10 @@ nav {
 }
 
 .home-main__intro__content-area__text__snippet {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 32px;
     letter-spacing: 1px;
+    text-align: justify;
 }
 
 .home-main__intro__cta {
@@ -149,8 +150,8 @@ nav {
 /* .home-main__women {} */
 
 .home-main__women__banner {
-    height: 350px;
-    background-color: royalblue;
+    height: 100%;
+    width: 100%;
 }
 
 .home-main__women__banner__image {
@@ -293,11 +294,12 @@ nav {
 .filter {
     border-radius: 50px;
     background-color: #EBEBEB;
-    font-size: 24px;
-    padding: 22px;
+    font-size: 22px;
+    padding: 20px;
     margin: 10px 10px;
     display: flex;
     width: 300px;
+    justify-content: center;
 }
 
 .filter__label {
@@ -323,7 +325,7 @@ nav {
 .filter__select-group__label {
     padding: 5px 0;
     margin-right: 17px;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .page-search__main__filter-area__filter-group input {
@@ -333,6 +335,12 @@ nav {
     justify-self: center;
 }
 
+#search-bar {
+    width: 100%;
+}
+
+
+ 
 .filter select {
     border: white;
     border-radius: 50px;
@@ -380,7 +388,7 @@ nav {
 p {
     text-align: center;
     padding: 30px 70px;
-    font-size: 26px;
+    font-size: 20px;
     line-height: 1.5;
 }
 
@@ -426,6 +434,10 @@ td:nth-child(odd) {
     background-color: #f2f2f2;
 }
 
+.filter__select-group__gender {
+    display: flex;
+    flex-direction: row;
+}
 
 /* VERSION MOBILE*/
 
@@ -438,18 +450,19 @@ td:nth-child(odd) {
 .bar1,
 .bar2,
 .bar3 {
-    width: 35px;
-    height: 5px;
+    width: 43px;
+    height: 6px;
     background-color: #333;
     border-radius: 10px;
-    margin: 6px 0;
+    margin: 7px 0;
     transition: 0.4s;
 }
 
+
 @media screen and (max-width: 1000px) {
     .header__logo-area__logo {
-        width: 50%;
-        height: 50%;
+        width: 90%;
+        height: 90%;
     }
     .nav__mobile {
         display: block;
@@ -460,11 +473,11 @@ td:nth-child(odd) {
     .nav__links {
         position: absolute;
         right: 0px;
-        height: 90vh;
+        height: 73%;
         width: 100%;
         top: 120px;
         background-color: white;
-        opacity: 0.93;
+        opacity: 0.945;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -487,6 +500,25 @@ td:nth-child(odd) {
     table {
         font-size: 20px;
     }
+    .page-search__main {
+        flex-direction: column;
+    }
+    .page-search__main__filter-area__filter-group {
+        flex-flow: row wrap;
+        justify-content: space-evenly; 
+        align-items: center;
+    }
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .home-main__intro {
+        flex-direction: column;
+    }
+    .home-main__intro__content-area {
+        margin-bottom: 40px;
+    }
 }
 
 .nav-active {
@@ -501,20 +533,5 @@ td:nth-child(odd) {
     to {
         opacity: 1;
         transform: translateX(0px);
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .home-main__intro {
-        flex-direction: column;
-    }
-    .home-main__intro__content-area {
-        margin-bottom: 40px;
-    }
-    .page-search__main {
-        flex-direction: column;
-    }
-    .page-search__main__filter-area__filter-group {
-        align-items: center;
     }
 }
