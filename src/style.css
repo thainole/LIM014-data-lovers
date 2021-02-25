@@ -33,8 +33,9 @@ nav {
 
 .nav__links {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 21px;
     display: flex;
+    justify-content: space-between;
 }
 
 .nav__links a{
@@ -42,15 +43,35 @@ nav {
     padding: 20px 30px;
     color: black;
     text-decoration: none;
+    cursor: pointer;
 }
-.nav__links li {
-    list-style: none;
+a:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: -8px;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: relative;
+    background: #2FB14E;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+a:hover:after { 
+    width: 100%; 
+    left: 0; 
 }
 
-.nav__links a:hover {
-    color: white;
-    background-color: #2FB14E;
+.nav__links li {
+    list-style: none;
+    padding-top: 20px;
 }
+
+/*.nav__links a:hover {
+    border-radius: 45px;
+    background-color: #2FB14E;
+    color: white;
+}*/
 
 
 
@@ -339,8 +360,6 @@ nav {
     width: 100%;
 }
 
-
- 
 .filter select {
     border: white;
     border-radius: 50px;
@@ -382,6 +401,9 @@ nav {
     transform: translateY(-7px);
 }
 
+#womenButton {
+    width: 260px;
+}
 
 /* Paragraphs */
 
@@ -490,12 +512,14 @@ td:nth-child(odd) {
         font-size: 25px;
     }
     .nav__links a:hover, a:active {
-       font-size: 165%;
-       background-color: white;
-       color:#2FB14E;
+        font-size: 165%;
+        background-color: white;
+        color:#2FB14E;
+        box-shadow: none;
+        transform: translateY(0px);
     }
-    .nav__links li {
-        opacity: 0;
+    .nav__links a:hover:after {
+        display: none;
     }
     table {
         font-size: 20px;
@@ -523,15 +547,4 @@ td:nth-child(odd) {
 
 .nav-active {
     transform: translateX(0%);
-}
-
-@keyframes navLinkFade {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0px);
-    }
 }
