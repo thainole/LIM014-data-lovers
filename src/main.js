@@ -129,10 +129,11 @@ events = [...events];
 
 function listOfOptions(selectCategory, list) {
     for (let i = 0; i < list.length; i++) {
-        let option = document.createElement("option"),
-            txt = document.createTextNode(list[i]);
-        option.appendChild(txt);
-        selectCategory.insertBefore(option, selectCategory.lastChild);
+        let option = document.createElement("option"), // crea elemento 'opción'
+            txt = document.createTextNode(list[i]); // crea la lista de elementos, de acuerdo a la cantidad existente 
+        option.appendChild(txt); // se añade la lista de elementos en 'option'
+        selectCategory.insertBefore(option, selectCategory.lastChild); 
+        //se inserta la nueva lista de opciones en nuestra 'lista de opciones' ya existente en el html 
     }
 }
 
