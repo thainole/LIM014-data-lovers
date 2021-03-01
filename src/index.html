@@ -12,24 +12,25 @@
 
 <body class="body">
 
-    <header class="header">
+    <nav>
         <div class="header__logo-area">
             <img class="header__logo-area__logo" src="img/logo-olimpiadas.png">
+
+        </div>
+        
+        <ul class="nav__links">
+            <li><a id="home-button" href="#">HOME</a></li>
+            <li><a id="champs-button" href="#">CHAMPIONS</a></li>
+            <li><a id="stats-button" href="#">STATISTICS</a></li>
+        </ul>
+
+        <div class="nav__mobile">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
         </div>
 
-        <div class="header__nav">
-            <a class="header__nav__link" id="home-button" href="#HOME">HOME</a>
-            <a class="header__nav__link" id="champs-button" href="#CHAMPIONS">CHAMPIONS</a>
-            <a class="header__nav__link" id="stats-button" href="#STATISTICS">STATISTICS</a>
-        </div>
-        <div class="header__nav-mobile">
-            <div class="hambuger-menu">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-        </div>
-    </header>
+    </nav>
 
     <!-- Home page -->
 
@@ -78,7 +79,7 @@
                 <img src="img/women-medal.jpg" class="home-main__intro__content-area__image">
             </div>
             <div class="home-main__intro__cta">
-                <button class="button">See all <br>champions</button>
+                <button class="button" id="womenButton">See all women<br>champions</button>
             </div>
         </section>
 
@@ -115,18 +116,19 @@
                         <div class="filter__label"><strong>Gender: </strong></div>
 
                         <div class="filter__select-group">
-                            <div class="filter__select-group__input-group">
-                                <input type="checkbox" checked="checked" id="check-female">
-                                <label class="filter__select-group__label">Female
-                                </label>
-                            </div>
+                            <section class="filter__select-group__gender">
+                                <div class="filter__select-group__input-group">
+                                    <input type="checkbox" id="check-female">
+                                    <label class="filter__select-group__label">Female
+                                    </label>
+                                </div>
 
-                            <div class="filter__select-group__input-group">
-                                <input type="checkbox" checked="checked" id="check-male">
-                                <label class="filter__select-group__label">Male
-                                </label>
-                            </div>
-
+                                <div class="filter__select-group__input-group">
+                                    <input type="checkbox" id="check-male">
+                                    <label class="filter__select-group__label">Male
+                                    </label>
+                                </div>
+                            </section>
                         </div>
 
                     </div>
@@ -172,8 +174,29 @@
 
 
     <!-- Statistics page -->
+    <main class="stats-page">
+        <div class="stats-page__tableContainer">
+            <table class="stats-page__tableContainer__table">
+                <thead>
+                    <tr>
+                        <td><strong>Team</strong></td>
+                        <td><strong>Gold</strong></td>
+                        <td><strong>Silver</strong></td>
+                        <td><strong>Bronze</strong></td>
+                        <td><strong>Total</strong></td>
+                    </tr>
+                </thead>
+                <tbody id="bodytable">
 
-    <footer class="footer">MC, C & T 2021 - All Rights Reserved </footer>
+                </tbody>
+
+            </table>
+    </main>
+
+    </div>
+
+
+    <footer class="footer"> © 2021 T, C and MC - All Rights Reserved </footer>
 
     <script src="main.js" type="module"></script>
 </body>

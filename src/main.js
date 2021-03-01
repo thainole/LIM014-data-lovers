@@ -1,21 +1,27 @@
-import { sortByAz, sortByZa, filterName, filterTeam, filterSport, filterEvent, mapTeam, mapSport, mapEvent, filterFemale, filterMale } from './data.js';
-import data from './data/athletes/athletes.js'; 
+import { filterByKey, filterByName, filterFemale, filterMale, filterMedal, mapByKey, sortByName, sortByTotal } from './data.js';
+import data from './data/athletes/athletes.js';
 
 
 // Declarando variables
 const athletesData = data.athletes;
+
 const resultsPage = document.querySelector(".page-search__main__results-area__grid");
 const popUp = document.querySelector(".page-search__pop-up-wrapper");
 const popUpContent = document.querySelector(".page-search__pop-up-content");
 const popUpClose = document.querySelector(".page-search__pop-up-close");
+
 const homeButton = document.getElementById("home-button");
 const statsButton = document.getElementById("stats-button");
 const champsButton = document.getElementById("champs-button");
 const anotherChampsButton = document.getElementById("another-champs-button");
+const womenButton = document.getElementById("womenButton");
 
-const repeatedTeams = mapTeam(athletesData);
-const repeatedSports = mapSport(athletesData);
-const repeatedEvents = mapEvent(athletesData);
+const repeatedTeams = mapByKey(athletesData, "team");
+const repeatedSports = mapByKey(athletesData, "sport");
+const repeatedEvents = mapByKey(athletesData, "event");
+let teams = new Set(repeatedTeams);
+let sports = new Set(repeatedSports);
+let events = new Set(repeatedEvents);
 
 const selectTeam = document.getElementById("select-team");
 const selectSport = document.getElementById("select-sport");
@@ -28,12 +34,14 @@ const selectOrder = document.querySelector(".select--order");
 
 
 
+
 // Mostrar atletas en las tarjetas y pop up
 const showAthletes = (data) => {
+    resultsPage.innerHTML = ''
     let counter = 0;
     data.forEach((athletes) => {
         counter++;
-        if (counter <= 100) {
+        if (counter <= 48) {
             const div = document.createElement("div");
             div.classList.add("card");
             div.innerHTML = `
@@ -44,6 +52,7 @@ const showAthletes = (data) => {
                 <li>Gender: ${athletes.gender}</li>
                 <li>Team: ${athletes.team}</li>
                 <li>Sport: ${athletes.sport}</li>
+                <li>Event: ${athletes.event}</li>
             </ul>
             <div class="card__read-more flex-center">
                 <button>Read more</button>
@@ -55,7 +64,7 @@ const showAthletes = (data) => {
                 popUp.style.display = "block";
                 popUpContent.innerHTML = showAthletesFullData(athletes);
             });
-        };
+        }
     });
     return showAthletes;
 }
@@ -72,7 +81,7 @@ popUp.addEventListener("click", e => {
 const showAthletesFullData = (athletes) => {
     let content = `
             <div class="card__title">${athletes.name}</div>
-            <div class="card__content">
+            <div class="card__content popupText">
                 <li>Gender: ${athletes.gender}</li>
                 <li>Height: ${athletes.height}</li>
                 <li>Weight: ${athletes.weight}</li>
@@ -88,175 +97,12 @@ const showAthletesFullData = (athletes) => {
 
 
 
-// Crear listas de opciones (teams y sports)
-const teams = [...new Set(repeatedTeams)].sort((a, b) => a > b ? 1 : -1);
-const sports = [...new Set(repeatedSports)].sort((a, b) => a > b ? 1 : -1);
-const events = [...new Set(repeatedEvents)].sort((a, b) => a > b ? 1 : -1);
-
-
-function listOfOptions(selectCategory, list) {
-    for (let i = 0; i < list.length; i++) {
-        let option = document.createElement("option"),
-            txt = document.createTextNode(list[i]);
-        option.appendChild(txt);
-        selectCategory.insertBefore(option, selectCategory.lastChild);
-    }
-}
-
-listOfOptions(selectTeam, teams);
-listOfOptions(selectSport, sports);
-listOfOptions(selectEvent, events);
-
-
-
-// Team (country) selection
-selectTeam.addEventListener("change", () => {
-    const searchStringSport = selectSport.value.toLowerCase(); //
-    let filteredNames = filterSport(athletesData, searchStringSport);
-
-    const searchStringTeam = selectTeam.value.toLowerCase(); //
-    filteredNames = filterTeam(filteredNames, searchStringTeam);
-
-    const searchStringEvent = selectEvent.value.toLowerCase(); //
-    filteredNames = filterEvent(filteredNames, searchStringEvent);
-
-
-    if (selectFemale.checked && !selectMale.checked) {
-        filteredNames = filterFemale(filteredNames);
-    }
-
-    if (selectMale.checked && !selectFemale.checked) {
-        filteredNames = filterMale(filteredNames);
-    }
-
-
-    if (filteredNames.length == 0) {
-        resultsPage.textContent = "No matches found. Try with another name";
-    } else {
-        resultsPage.innerHTML = "";
-        showAthletes(filteredNames);
-    }
-});
-
-//Sport selection
-selectSport.addEventListener("change", () => {
-
-    const searchStringSport = selectSport.value.toLowerCase(); //
-    let filteredNames = filterSport(athletesData, searchStringSport);
-
-    const searchStringTeam = selectTeam.value.toLowerCase(); //
-    filteredNames = filterTeam(filteredNames, searchStringTeam);
-
-    const searchStringEvent = selectEvent.value.toLowerCase(); //
-    filteredNames = filterEvent(filteredNames, searchStringEvent);
-
-    if (selectFemale.checked && !selectMale.checked) {
-        filteredNames = filterFemale(filteredNames);
-    }
-
-    if (selectMale.checked && !selectFemale.checked) {
-        filteredNames = filterMale(filteredNames);
-    }
-
-
-    if (filteredNames.length == 0) {
-        resultsPage.textContent = "No matches found. Try with another name";
-    } else {
-        resultsPage.innerHTML = "";
-        showAthletes(filteredNames);
-    }
-});
-
-//selectEvent
-selectEvent.addEventListener("change", () => {
-    const searchStringSport = selectSport.value.toLowerCase(); //
-    let filteredNames = filterSport(athletesData, searchStringSport);
-
-    const searchStringTeam = selectTeam.value.toLowerCase(); //
-    filteredNames = filterTeam(filteredNames, searchStringTeam);
-
-    const searchStringEvent = selectEvent.value.toLowerCase(); //
-    filteredNames = filterEvent(filteredNames, searchStringEvent);
-
-    if (selectFemale.checked && !selectMale.checked) {
-        filteredNames = filterFemale(filteredNames);
-    }
-
-    if (selectMale.checked && !selectFemale.checked) {
-        filteredNames = filterMale(filteredNames);
-    }
-
-
-    if (filteredNames.length == 0) {
-        resultsPage.textContent = "No matches found. Try with another name";
-    } else {
-        resultsPage.innerHTML = "";
-        showAthletes(filteredNames);
-    }
-});
-//gender selection
-//gender: female
-selectFemale.addEventListener("change", () => {
-    const searchStringSport = selectSport.value.toLowerCase(); //
-    let filteredNames = filterSport(athletesData, searchStringSport);
-
-    const searchStringTeam = selectTeam.value.toLowerCase(); //
-    filteredNames = filterTeam(filteredNames, searchStringTeam);
-
-    const searchStringEvent = selectEvent.value.toLowerCase(); //
-    filteredNames = filterEvent(filteredNames, searchStringEvent);
-
-    if (selectFemale.checked && !selectMale.checked) {
-        filteredNames = filterFemale(filteredNames);
-    }
-
-    if (selectMale.checked && !selectFemale.checked) {
-        filteredNames = filterMale(filteredNames);
-    }
-
-
-    if (filteredNames.length == 0) {
-        resultsPage.textContent = "No matches found. Try with another name";
-    } else {
-        resultsPage.innerHTML = "";
-        showAthletes(filteredNames);
-    }
-});
-//gender: male
-selectMale.addEventListener("change", () => {
-    const searchStringSport = selectSport.value.toLowerCase(); //
-    let filteredNames = filterSport(athletesData, searchStringSport);
-
-    const searchStringTeam = selectTeam.value.toLowerCase(); //
-    filteredNames = filterTeam(filteredNames, searchStringTeam);
-
-    const searchStringEvent = selectEvent.value.toLowerCase(); //
-    filteredNames = filterEvent(filteredNames, searchStringEvent);
-
-    if (selectFemale.checked && !selectMale.checked) {
-        filteredNames = filterFemale(filteredNames);
-    }
-
-    if (selectMale.checked && !selectFemale.checked) {
-        filteredNames = filterMale(filteredNames);
-    }
-
-
-    if (filteredNames.length == 0) {
-        resultsPage.textContent = "No matches found. Try with another name";
-    } else {
-        resultsPage.innerHTML = "";
-        showAthletes(filteredNames);
-    }
-});
 
 
 // Barra de búsqueda
 searchBar.addEventListener("input", () => {
-    //set selected value of DropDown inputs to "" or ALL
-
     const searchString = searchBar.value.toLowerCase(); //
-    const filteredNames = filterName(athletesData, searchString);
+    const filteredNames = filterByName(athletesData, searchString);
     if (filteredNames.length == 0) {
         resultsPage.textContent = "No matches found. Try with another name";
     } else {
@@ -269,48 +115,150 @@ searchBar.addEventListener("input", () => {
 
 // Ordenar por nombre
 selectOrder.addEventListener("change", () => {
-    if (selectOrder.value == "a-z") {
-        resultsPage.innerHTML = "";
-        showAthletes(sortByAz(athletesData));
-    } else if (selectOrder.value == "z-a") {
-        resultsPage.innerHTML = "";
-        showAthletes(sortByZa(athletesData));
-    };
+    let condition = selectOrder.value;
+    return showAthletes(sortByName(athletesData, condition));
 });
+
+
+
+
+// Crear listas de opciones (teams y sports)
+teams = [...teams];
+sports = [...sports];
+events = [...events];
+
+function listOfOptions(selectCategory, list) {
+    for (let i = 0; i < list.length; i++) {
+        let option = document.createElement("option"), // crea elemento 'opción'
+            txt = document.createTextNode(list[i]); // crea la lista de elementos, de acuerdo a la cantidad existente 
+        option.appendChild(txt); // se añade la lista de elementos en 'option'
+        selectCategory.insertBefore(option, selectCategory.lastChild); 
+        //se inserta la nueva lista de opciones en nuestra 'lista de opciones' ya existente en el html 
+    }
+}
+
+listOfOptions(selectTeam, teams);
+listOfOptions(selectSport, sports);
+listOfOptions(selectEvent, events);
+
+
+
+
+function includingAllFilters() {
+    const sportOption = selectSport.value;
+    const teamOption = selectTeam.value;
+    const eventOption = selectEvent.value;
+
+    const filteredSports = filterByKey(athletesData, sportOption, 'sport');
+    const filteredTeams = filterByKey(filteredSports, teamOption, 'team');
+    let filteredData = filterByKey(filteredTeams, eventOption, 'event');
+
+    if (selectMale.checked && !selectFemale.checked) {
+        filteredData = filterMale(filteredData);
+    }
+    if (selectFemale.checked && !selectMale.checked) {
+        filteredData = filterFemale(filteredData);
+    }
+
+    showAthletes(filteredData);
+}
+
+// Filter selection
+selectTeam.addEventListener("change", includingAllFilters)
+selectSport.addEventListener("change", includingAllFilters);
+selectEvent.addEventListener("change", includingAllFilters);
+selectFemale.addEventListener("change", includingAllFilters);
+selectMale.addEventListener("change", includingAllFilters);
+
+
+
+// Medallas
+/*El forEach llena el objeto vacío que es object medals y se crean los keywords*/
+let medals = [];
+teams.forEach((team) => {
+    let goldenMedals = filterMedal(athletesData, team, "Gold")
+    let silverMedals = filterMedal(athletesData, team, "Silver")
+    let bronzeMedals = filterMedal(athletesData, team, "Bronze")
+    let total = goldenMedals + silverMedals + bronzeMedals;
+
+    medals.push({
+        country: team,
+        golden: goldenMedals,
+        silver: silverMedals,
+        bronze: bronzeMedals,
+        total: total
+    })
+});
+
+/*El forEach pinta la tabla con los objetos ya creados*/
+let medalsOrdered = sortByTotal(medals, 'dsc');
+
+medalsOrdered.forEach((obj) => {
+    const container = document.createElement('tr');
+    const table = document.getElementById("bodytable");
+    table.appendChild(container).innerHTML =
+        `<tr> 
+      <td> <strong>${obj.country}</strong> 
+      </td><td>${obj.golden}</td>
+      </td><td>${obj.silver}</td>
+      </td><td>${obj.bronze}</td>
+      </td><td>${obj.total}</td>
+      </tr>`
+
+});
+
+
 
 
 
 // Funcionalidad de la barra de navegación
 homeButton.addEventListener("click", homePage);
+anotherChampsButton.addEventListener("click", champsPage);
+champsButton.addEventListener("click", champsPage);
+womenButton.addEventListener("click", womenPage);
+statsButton.addEventListener("click", statsPage);
+
 
 function homePage() {
     document.querySelector(".home-main").style.display = "block";
     document.querySelector(".page-search").style.display = "none";
+    document.querySelector(".stats-page").style.display = "none";
 }
 
-anotherChampsButton.addEventListener("click", champsPage);
-champsButton.addEventListener("click", champsPage);
+function womenPage() {
+    let women = filterFemale(athletesData)
 
-function champsPage() {
-    console.log("click");
     document.querySelector(".page-search").style.display = "block";
     document.querySelector(".home-main").style.display = "none";
+    document.querySelector(".stats-page").style.display = "none";
+    resultsPage.innerHTML = ''
+    showAthletes(women);
+
+}
+
+function champsPage() {
+    document.querySelector(".page-search").style.display = "block";
+    document.querySelector(".home-main").style.display = "none";
+    document.querySelector(".stats-page").style.display = "none";
+    resultsPage.innerHTML = ''
     showAthletes(athletesData);
 }
 
-statsButton.addEventListener("click", statsPage);
-
 function statsPage() {
-    window.location.assign('./statistics.html');
+    document.querySelector(".stats-page").style.display = "block";
+    document.querySelector(".page-search").style.display = "none";
+    document.querySelector(".home-main").style.display = "none";
 }
 
-
-
-//Statistics HTML 
-//let sumaDeMedallas =0;
-<<<<<<< HEAD
-//for(let i=0; i<=athletesData.length;i++){}
-=======
-
-
->>>>>>> ff5d2b2d08beb0fbaca520357269bf3e782a5cb1
+const navSlide = () => {
+    const burger = document.querySelector('.nav__mobile');
+    const nav = document.querySelector('.nav__links');
+    
+ 
+    burger.addEventListener('click', ()=>{
+        //Toggle Nav
+        nav.classList.toggle('nav-active');
+    
+    });
+}
+navSlide();
