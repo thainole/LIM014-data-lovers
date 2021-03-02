@@ -45,7 +45,7 @@ nav {
     text-decoration: none;
     cursor: pointer;
 }
-a:after {    
+.nav__links a:after {    
     background: none repeat scroll 0 0 transparent;
     bottom: -8px;
     content: "";
@@ -57,7 +57,7 @@ a:after {
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
 }
-a:hover:after { 
+.nav__links a:hover:after { 
     width: 100%; 
     left: 0; 
 }
