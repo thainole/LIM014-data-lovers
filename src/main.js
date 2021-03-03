@@ -19,9 +19,9 @@ const womenButton = document.getElementById("womenButton");
 const repeatedTeams = mapByKey(athletesData, "team");
 const repeatedSports = mapByKey(athletesData, "sport");
 const repeatedEvents = mapByKey(athletesData, "event");
-let teams = new Set(repeatedTeams);
-let sports = new Set(repeatedSports);
-let events = new Set(repeatedEvents);
+let teams = [...new Set(repeatedTeams)];
+let sports = [...new Set(repeatedSports)];
+let events = [...new Set(repeatedEvents)];
 
 const selectTeam = document.getElementById("select-team");
 const selectSport = document.getElementById("select-sport");
@@ -123,17 +123,12 @@ selectOrder.addEventListener("change", () => {
 
 
 // Crear listas de opciones (teams y sports)
-teams = [...teams];
-sports = [...sports];
-events = [...events];
-
 function listOfOptions(selectCategory, list) {
     for (let i = 0; i < list.length; i++) {
-        let option = document.createElement("option"), // crea elemento 'opción'
-            txt = document.createTextNode(list[i]); // crea la lista de elementos, de acuerdo a la cantidad existente 
-        option.appendChild(txt); // se añade la lista de elementos en 'option'
-        selectCategory.insertBefore(option, selectCategory.lastChild); 
-        //se inserta la nueva lista de opciones en nuestra 'lista de opciones' ya existente en el html 
+        let option = document.createElement("option"), 
+            txt = document.createTextNode(list[i]); 
+        option.appendChild(txt); 
+        selectCategory.appendChild(option); 
     }
 }
 
@@ -206,8 +201,6 @@ medalsOrdered.forEach((obj) => {
       </tr>`
 
 });
-
-
 
 
 
